@@ -1,7 +1,6 @@
-import logo from './logo.svg';
 import './App.css';
 import * as PANOLENS from 'panolens'
-import * as THREE from 'three'
+// import * as THREE from 'three'
 import px from './assets/px.jpg'
 import py from './assets/py.jpg'
 import pz from './assets/pz.jpg'
@@ -12,10 +11,10 @@ import ny from './assets/ny.jpg'
 
 
 function App() {
-  let panorama, panorama2, viewer;
+  let panorama, viewer;
 
-  const path = './assets/'
-  const format = '.png';
+  // const path = './assets/'
+  // const format = '.png';
   panorama = new PANOLENS.CubePanorama( [
       px, nx,
       py, ny,
