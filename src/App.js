@@ -1,34 +1,36 @@
 import './App.css';
 import * as PANOLENS from 'panolens'
-// import * as THREE from 'three'
-import px from './assets/px.jpg'
-import py from './assets/py.jpg'
-import pz from './assets/pz.jpg'
-import nx from './assets/nx.jpg'
-import nz from './assets/nz.jpg'
-import ny from './assets/ny.jpg'
+import * as THREE from 'three'
+// import px from './assets/px.jpg'
+// import py from './assets/py.jpg'
+// import pz from './assets/pz.jpg'
+// import nx from './assets/nx.jpg'
+// import nz from './assets/nz.jpg'
+// import ny from './assets/ny.jpg'
+import field from './assets/test360.jpg'
+import field2 from './assets/field.jpg'
+
 
 
 
 function App() {
-  let panorama, viewer;
+  let panorama, panorama2, viewer;
 
   // const path = './assets/'
   // const format = '.png';
-  panorama = new PANOLENS.CubePanorama( [
-      px, nx,
-      py, ny,
-      pz, nz
-  ] );
+  // panorama = new PANOLENS.CubePanorama( [
+  //     px, nx,
+  //     py, ny,
+  //     pz, nz
+  // ] );
+  panorama = new PANOLENS.ImagePanorama( field );
+  panorama2 = new PANOLENS.ImagePanorama( field2 );
 
-  // panorama2 = new PANOLENS.ImagePanorama( 'asset/textures/equirectangular/field.jpg' );
-
-  // panorama.link( panorama2, new THREE.Vector3( -807.50, 604.88, -5000.00 ) );
-  // panorama2.link( panorama, new THREE.Vector3( -807.50, 604.88, -5000.00 ) );
+  panorama.link( panorama2, new THREE.Vector3( -807.50, 604.88, -5000.00 ) );
+  panorama2.link( panorama, new THREE.Vector3( -807.50, 604.88, -5000.00 ) );
 
   viewer = new PANOLENS.Viewer();
-  viewer.add( panorama );
-  // viewer.add( panorama, panorama2 );
+  viewer.add( panorama, panorama2 );
 
   return (
     <div className="App">
