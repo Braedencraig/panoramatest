@@ -6,11 +6,8 @@ import field2 from './assets/museum.jpg'
 import field3 from './assets/field.jpg'
 import sun from './assets/sunnobg.png'
 import plant from './assets/plantnobg.png'
-import space from './assets/space.gif'
 import mrbean from './assets/mrbean.jpg'
 import Burger from './components/Burger'
-import video from './assets/video.mp4'
-import { PlainAnimator } from 'three-plain-animator/lib/plain-animator';
 
 
 
@@ -28,11 +25,6 @@ function App() {
     600, 
     plant
   );
-
-  // infospot3 = new PANOLENS.Infospot( 
-  //   600, 
-  //   space
-  // );
 
   infospot4 = new PANOLENS.Infospot( 
     600, 
