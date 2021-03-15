@@ -8,6 +8,7 @@ import sun from './assets/sunnobg.png'
 import plant from './assets/plantnobg.png'
 import mrbean from './assets/mrbean.jpg'
 import Burger from './components/Burger'
+import test from './assets/programming.gif'
 
 
 
@@ -109,6 +110,7 @@ viewer.addUpdateCallback(function(){
         <div id="desc-container" style={style}>
             <iframe src="https://www.youtube.com/embed/D7icsuamx5E"></iframe>
             <div className="title">China's Forgotten War</div>
+            <img src={test} alt="Computer man" />
             <div className="text">WWII came to the small town of Tai’erzhuang in central China – and it was never the same again. The town was strategically placed, on the north-south transport railway corridor and the ancient Grand Canal, and so was a focus of the Japanese Imperial army as it advanced. Li Jing Shan was only a child when his family fled the fighting. They returned to find their home, and most of the town, in ruins.</div>
         </div>
       </div>
