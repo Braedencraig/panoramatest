@@ -9,11 +9,15 @@ import plant from './assets/plantnobg.png'
 import mrbean from './assets/mrbean.jpg'
 import Burger from './components/Burger'
 import test from './assets/programming.gif'
-
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
 
 
 function App() {
-  let panorama, panorama2, panorama3, viewer, infospot, infospot2, infospot3, infospot4, panorama_video;
+  let panorama, panorama2, panorama3, viewer, infospot, infospot2, infospot3, infospot4, panorama_video, infospot32, infospot33, infospot42, infospot43, infospot44;
 
   panorama_video = new PANOLENS.VideoPanorama( 'https://pchen66.github.io/Panolens/examples/asset/textures/video/1941-battle-low.mp4' );
 
@@ -31,39 +35,33 @@ function App() {
     600, 
     mrbean
   );
+
+  infospot42 = new PANOLENS.Infospot( 
+    600, 
+    mrbean
+  );
+
+  infospot43 = new PANOLENS.Infospot( 
+    600, 
+    mrbean
+  );
+
+  infospot44 = new PANOLENS.Infospot( 
+    600, 
+    mrbean
+  );
   
   infospot.position.set( 1000, 100, -2000 );
-  infospot.addHoverText( "here comes da sun", 100 );
+  infospot.addHoverText( "Videos & Gifs Examples", 100 );
   infospot.addEventListener( 'click', function(){
     viewer.setPanorama( panorama2 );
   } );
   
   infospot2.position.set( 100, 100, -2000 );
-  infospot2.addHoverText( "woah funky plant", 100 );
+  infospot2.addHoverText( "Picture Example", 100 );
   infospot2.addEventListener( 'click', function(){
     viewer.setPanorama( panorama3 );
   } );
-
-
-  // infospot3.position.set( 1000, 100, -2000 );  
-  infospot4.position.set( 400, 100, -2000 );
-
-  panorama = new PANOLENS.ImagePanorama( field );
-  panorama.add( infospot );
-  panorama.add( infospot2 );
-
-  panorama.link( panorama_video, new THREE.Vector3( -807.50, 604.88, -5000.00 ) );
-  panorama_video.link( panorama, new THREE.Vector3( -807.50, 604.88, -5000.00 ) );  
-
-  panorama2 = new PANOLENS.ImagePanorama( field2 );
-  panorama3 = new PANOLENS.ImagePanorama( field3 );
-
-  // panorama2.add( infospot3 );
-  panorama3.add( infospot4 );
-
-  
-  panorama3.link( panorama, new THREE.Vector3( -807.50, 604.88, -5000.00 ) );
-  panorama2.link( panorama, new THREE.Vector3( -807.50, 604.88, -5000.00 ) );
 
   infospot3 = new PANOLENS.Infospot( 300, PANOLENS.DataImage.Info );
   infospot3.position.set( 1000, -600, -2000 );
@@ -72,13 +70,51 @@ function App() {
     panorama2.add( infospot3 );
   }, 1000)
 
+  infospot32 = new PANOLENS.Infospot( 300, PANOLENS.DataImage.Info );
+  infospot32.position.set( -3000, -600, -2000 );
+  setTimeout(() => {
+    infospot32.addHoverElement( document.getElementById( 'desc-container-two' ), 200 );
+    panorama2.add( infospot32 );
+  }, 1000)
+
+  infospot33 = new PANOLENS.Infospot( 300, PANOLENS.DataImage.Info );
+  infospot33.position.set( -5000, -600, -2000 );
+  setTimeout(() => {
+    infospot33.addHoverElement( document.getElementById( 'desc-container-three' ), 200 );
+    panorama2.add( infospot33 );
+  }, 1000)
+
+  infospot4.position.set( 400, 100, -2000 );
+  infospot42.position.set( 2000, 100, -2000 );
+  infospot43.position.set( 3000, 100, -2000 );
+  infospot44.position.set( -1000, 200, -2000 );
+
+
+  panorama = new PANOLENS.ImagePanorama( field );
+  panorama2 = new PANOLENS.ImagePanorama( field2 );
+  panorama3 = new PANOLENS.ImagePanorama( field3 );
+
+  panorama.add( infospot );
+  panorama.add( infospot2 );
+
+  panorama3.add( infospot4 );
+  panorama3.add( infospot42 );
+  panorama3.add( infospot43 );
+  panorama3.add( infospot44 );
+
+  panorama.link( panorama_video, new THREE.Vector3( -807.50, 604.88, -5000.00 ) );
+  panorama_video.link( panorama, new THREE.Vector3( -807.50, 604.88, -5000.00 ) );  
+  panorama2.link( panorama, new THREE.Vector3( -807.50, 604.88, -5000.00 ) );
+  panorama3.link( panorama, new THREE.Vector3( -807.50, 604.88, -5000.00 ) );
+
+ 
+
   viewer = new PANOLENS.Viewer({autoHideInfospot: false});
   viewer.add( panorama, panorama2, panorama3, panorama_video);
 
   const style = {
     display: 'none'
   }
-
 
   const boxWidth = 100;
   const boxHeight = 100;
@@ -105,17 +141,47 @@ viewer.addUpdateCallback(function(){
 
   return (
     <>
-      <Burger />
-      <div className="App">
-        <div id="desc-container" style={style}>
-            <iframe src="https://www.youtube.com/embed/D7icsuamx5E"></iframe>
-            <div className="title">China's Forgotten War</div>
-            <img src={test} alt="Computer man" />
-            <div className="text">WWII came to the small town of Tai’erzhuang in central China – and it was never the same again. The town was strategically placed, on the north-south transport railway corridor and the ancient Grand Canal, and so was a focus of the Japanese Imperial army as it advanced. Li Jing Shan was only a child when his family fled the fighting. They returned to find their home, and most of the town, in ruins.</div>
+      <Router>
+        <Burger />
+        <div className="App">
+          <div id="desc-container" style={style}>
+              <iframe title="asdas" src="https://www.youtube.com/embed/wCDIYvFmgW8"></iframe>
+          </div>
+          <div id="desc-container-two" style={style}>
+              <iframe title="asdas" src="https://www.youtube.com/embed/wCDIYvFmgW8"></iframe>
+          </div>
+          <div id="desc-container-three" style={style}>
+              <img src={test} alt="Computer man" />
+          </div>
         </div>
-      </div>
+        <Switch>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </Router>
     </>
   );
 }
+
+
+function Home() {
+  const style = {
+    display: 'none'
+  }
+  return <h2 style={style}>Home</h2>;
+}
+
+function About() {
+  return (
+    <div className="fullpage">
+      <h2>About</h2>
+    </div>
+  );
+}
+
 
 export default App;

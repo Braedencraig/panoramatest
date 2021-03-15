@@ -35,17 +35,26 @@ html, body {
   max-height: 500px;
   min-width: 200px;
   min-height: 250px;
-  background: #fff;
+  background: black;
   color: #000;
   border-radius: 3px;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
   display: none;
+  border: 10px solid black;
 }
 
 #desc-container > iframe {
   border: none;
   width:100%;
+  height: 400px;
+  /* RESPONSIVE IFRAME?! */
+  /* border: 10px solid black; */
+}
+
+img {
+  height: 200px !important;
+  width: 200px !important;
 }
 
 /* Position and sizing of burger button */
@@ -113,4 +122,12 @@ Note: Beware of modifying this element as it can break the animations - you shou
 /* Styling of overlay */
 .bm-overlay {
   background: rgba(0, 0, 0, 0.3);
+}
+
+h2 {
+  color: white;
+}
+
+.fullpage {
+  height: 100vh;
 }
