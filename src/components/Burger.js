@@ -1,18 +1,19 @@
 import React from 'react'
 import { stack as Menu } from 'react-burger-menu'
+import { Link } from "react-router-dom";
 
 class Burger extends React.Component {
   render () {
     return (
       <Menu right>
-        {/* <ul>
+        <ul>
             <li>
               <Link to="/about">About</Link>
             </li>
             <li>
               <Link to="/users">Users</Link>
             </li>
-          </ul> */}
+          </ul>
         <a id="home" className="menu-item" href="/">Home</a>
         <a id="about" className="menu-item" href="/about">About</a>
         <a id="contact" className="menu-item" href="/contact">Contact</a>
