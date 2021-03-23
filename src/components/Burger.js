@@ -8,15 +8,12 @@ class Burger extends React.Component {
       <Menu right>
         <ul>
             <li>
-              <Link to="/about">About</Link>
+              <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/users">Users</Link>
+              <Link to="/about">About</Link>
             </li>
-          </ul>
-        <a id="home" className="menu-item" href="/">Home</a>
-        <a id="about" className="menu-item" href="/about">About</a>
-        <a id="contact" className="menu-item" href="/contact">Contact</a>
+        </ul>
       </Menu>
     );
   }
