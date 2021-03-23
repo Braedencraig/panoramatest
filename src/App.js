@@ -1,6 +1,8 @@
 import './App.css';
 import * as PANOLENS from 'panolens'
 import * as THREE from 'three'
+import Home from './pages/Home'
+import About from './pages/About'
 import field from './assets/test360.jpg'
 import field2 from './assets/museum.jpg'
 import field3 from './assets/field.jpg'
@@ -36,10 +38,16 @@ function App() {
     mrbean
   );
 
+  infospot4.addHoverText('Text');
+  infospot4.lockHoverElement();
+
   infospot42 = new PANOLENS.Infospot( 
     600, 
     mrbean
   );
+
+  infospot42.addHoverText('Text');
+  infospot42.lockHoverElement();
 
   infospot43 = new PANOLENS.Infospot( 
     600, 
@@ -52,13 +60,13 @@ function App() {
   );
   
   infospot.position.set( 1000, 100, -2000 );
-  infospot.addHoverText( "Videos & Gifs Examples", 100 );
+  // infospot.addHoverText( "Videos & Gifs Examples", 100 );
   infospot.addEventListener( 'click', function(){
     viewer.setPanorama( panorama2 );
   } );
   
   infospot2.position.set( 100, 100, -2000 );
-  infospot2.addHoverText( "Picture Example", 100 );
+  // infospot2.addHoverText( "Picture Example", 100 );
   infospot2.addEventListener( 'click', function(){
     viewer.setPanorama( panorama3 );
   } );
@@ -89,7 +97,6 @@ function App() {
   infospot43.position.set( 3000, 100, -2000 );
   infospot44.position.set( -1000, 200, -2000 );
 
-
   panorama = new PANOLENS.ImagePanorama( field );
   panorama2 = new PANOLENS.ImagePanorama( field2 );
   panorama3 = new PANOLENS.ImagePanorama( field3 );
@@ -107,9 +114,7 @@ function App() {
   panorama2.link( panorama, new THREE.Vector3( -807.50, 604.88, -5000.00 ) );
   panorama3.link( panorama, new THREE.Vector3( -807.50, 604.88, -5000.00 ) );
 
- 
-
-  viewer = new PANOLENS.Viewer({autoHideInfospot: false});
+  viewer = new PANOLENS.Viewer({ autoHideInfospot: false });
   viewer.add( panorama, panorama2, panorama3, panorama_video);
 
   const style = {
@@ -135,20 +140,16 @@ viewer.addUpdateCallback(function(){
 });
 
 
-
-
-
-
   return (
     <>
       <Router>
         <Burger />
         <div className="App">
           <div id="desc-container" style={style}>
-              <iframe title="asdas" src="https://www.youtube.com/embed/wCDIYvFmgW8"></iframe>
+              <iframe title="asdas" src="https://pchen66.github.io/Panolens/examples/asset/textures/video/1941-battle-low.mp4"></iframe>
           </div>
           <div id="desc-container-two" style={style}>
-              <iframe title="asdas" src="https://www.youtube.com/embed/wCDIYvFmgW8"></iframe>
+              <iframe title="asdas" src="https://pchen66.github.io/Panolens/examples/asset/textures/video/1941-battle-low.mp4"></iframe>
           </div>
           <div id="desc-container-three" style={style}>
               <img src={test} alt="Computer man" />
@@ -166,22 +167,5 @@ viewer.addUpdateCallback(function(){
     </>
   );
 }
-
-
-function Home() {
-  const style = {
-    display: 'none'
-  }
-  return <h2 style={style}>Home</h2>;
-}
-
-function About() {
-  return (
-    <div className="fullpage">
-      <h2>About</h2>
-    </div>
-  );
-}
-
 
 export default App;
