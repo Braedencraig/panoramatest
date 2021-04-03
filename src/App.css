@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   margin: 0;
   width: 100%;
   height: 100%;
@@ -7,11 +8,12 @@ html, body {
   color: white;
 }
 
-a:link, a:visited{
+a:link,
+a:visited {
   color: #bdc3c7;
 }
 
-.credit{
+.credit {
   position: absolute;
   text-align: center;
   width: 100%;
@@ -19,7 +21,8 @@ a:link, a:visited{
   color: #fff;
 }
 
-html, body {
+html,
+body {
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -46,17 +49,17 @@ html, body {
 }
 
 #desc-container > iframe {
-  border: none;
-  width:100%;
-  height: 400px;
+  /* border: none;
+  width: 100%;
+  height: 400px; */
   /* RESPONSIVE IFRAME?! */
   /* border: 10px solid black; */
 }
 
-img {
-  height: 200px !important;
-  width: 200px !important;
-}
+/* img {
+  height: 300px !important;
+  width: 300px !important;
+} */
 
 /* Position and sizing of burger button */
 .bm-burger-button {
@@ -69,12 +72,12 @@ img {
 
 /* Color/shape of burger icon bars */
 .bm-burger-bars {
-  background: #373a47;
+  background: white;
 }
 
 /* Color/shape of burger icon bars on hover*/
 .bm-burger-bars-hover {
-  background: #a90000;
+  background: white;
 }
 
 /* Position and sizing of clickable cross button */
@@ -85,7 +88,7 @@ img {
 
 /* Color/shape of close button cross */
 .bm-cross {
-  background: #bdc3c7;
+  background: black;
 }
 
 /*
@@ -95,13 +98,15 @@ Note: Beware of modifying this element as it can break the animations - you shou
 .bm-menu-wrap {
   position: fixed;
   height: 100%;
+  top: 0;
 }
 
 /* General sidebar styles */
 .bm-menu {
-  background: #373a47;
+  background: white;
   padding: 2.5em 1.5em 0;
   font-size: 1.15em;
+  overflow: hidden !important;
 }
 
 /* Morph shape necessary with bubble or elastic */
@@ -111,7 +116,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
 /* Wrapper for item list */
 .bm-item-list {
-  color: #b8b7ad;
+  color: black;
   padding: 0.8em;
 }
 
@@ -133,17 +138,20 @@ h2 {
   height: 100vh;
 }
 
-.intro-title {
+.intro-title,
+.about-title {
   font-size: 20px;
   margin-top: 5%;
   text-align: center;
 }
 
-.intro-title h2 {
+.intro-title h2,
+.about-title h2 {
   font-size: 20px;
 }
 
-.intro-text {
+.intro-text,
+.about-blurb {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -159,10 +167,168 @@ h2 {
   margin-top: 2.5%;
 }
 
-.intro-text p {
+.intro-text p,
+.about-blurb p {
   width: 66%;
 }
 
 .hide {
   display: none;
 }
+
+button {
+  padding: 10px;
+  border: 2px solid white;
+  background: transparent;
+  color: white;
+  margin: 0 20px;
+  transition: all 0.4s;
+  cursor: pointer;
+}
+
+button:hover {
+  background: white;
+  color: black;
+}
+
+a,
+a:visited {
+  color: black;
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+}
+
+li {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+a:hover {
+  color: #373a47;
+}
+
+.about-artist {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  width: 45%;
+  margin: 0 auto;
+}
+
+.about-blurb {
+  margin-bottom: 20px;
+}
+
+.about-blurb-flex p {
+  text-align: left;
+}
+
+.socials {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.socials a {
+  margin: 10px;
+}
+
+.flex-image img {
+  width: 200px;
+}
+
+.mailing-list {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+}
+
+input {
+  background: black;
+  color: white;
+  border: 2px solid white;
+  padding: 10px;
+  font-size: 20px;
+}
+
+.mailing-list button {
+  font-size: 20px;
+}
+
+.mailing-list p {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 5px;
+}
+
+#typed {
+  color: #fff;
+  text-shadow: 0px 0px 2px #000;
+  font-size: 24pt;
+}
+
+#dialog {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+  pointer-events: none;
+}
+
+#progress {
+  width: 0;
+  height: 5px;
+  position: fixed;
+  top: 0;
+  background: #fff;
+  -webkit-transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease;
+}
+
+#progress.finish {
+  opacity: 0;
+}
+
+/* .typed-cursor {
+  opacity: 1;
+  animation: typedjsBlink 0.7s infinite;
+  -webkit-animation: typedjsBlink 0.7s infinite;
+  animation: typedjsBlink 0.7s infinite;
+}
+@keyframes typedjsBlink {
+  50% {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes typedjsBlink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.typed-fade-out {
+  opacity: 0;
+  transition: opacity 0.25s;
+  -webkit-animation: 0;
+  animation: 0;
+} */
