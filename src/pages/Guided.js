@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState, useRef } from "react";
 import * as PANOLENS from "panolens";
 import * as THREE from "three";
@@ -14,7 +15,14 @@ export default function Guided() {
   const [progressEl, setProgessEl] = useState(null);
   const spanEl = useRef(null);
 
-  var panorama1, panorama2, panorama3, panorama4, panorama5, panorama6, viewer;
+  var panorama1,
+    panorama2,
+    panorama3,
+    panorama4,
+    panorama5,
+    panorama6,
+    viewer,
+    typed;
 
   var meterInfospot,
     valveInfospot,
