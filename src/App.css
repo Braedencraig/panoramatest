@@ -332,3 +332,7 @@ input {
   -webkit-animation: 0;
   animation: 0;
 } */
+
+video {
+  display: none;
+}

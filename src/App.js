@@ -1,8 +1,7 @@
 import "./App.css";
-// import * as PANOLENS from "panolens";
-// import * as THREE from "three";
 import Home from "./pages/Home";
 import About from "./pages/About";
+
 import Guided from "./pages/Guided";
 import SelfGuided from "./pages/SelfGuided";
 
