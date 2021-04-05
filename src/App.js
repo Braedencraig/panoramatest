@@ -1,18 +1,9 @@
 import "./App.css";
 import Home from "./pages/Home";
 import About from "./pages/About";
-
 import Guided from "./pages/Guided";
 import SelfGuided from "./pages/SelfGuided";
-
-import field from "./assets/test360.jpg";
-import field2 from "./assets/museum.jpg";
-import field3 from "./assets/field.jpg";
-import sun from "./assets/sunnobg.png";
-import plant from "./assets/plantnobg.png";
-import mrbean from "./assets/mrbean.jpg";
 import Burger from "./components/Burger";
-import test from "./assets/programming.gif";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {

@@ -9,7 +9,6 @@ import three from "../assets/spheres/three.jpg";
 import four from "../assets/spheres/four.jpg";
 import five from "../assets/spheres/five.jpg";
 import six from "../assets/spheres/six.jpg";
-import testGif from "../assets/programming.gif";
 
 export default function SelfGuided() {
   let panorama1, panorama2, panorama3, panorama4, panorama5, panorama6, viewer;
@@ -32,19 +31,14 @@ export default function SelfGuided() {
   // const boxHeight = 100;
   // const boxDepth = 1;
   // const geometry = new THREE.BoxGeometry(boxWidth, boxHeight, boxDepth);
-  // const geometry = new THREE.PlaneGeometry(5, 20, 32);
 
-  // instantiate a loader
   const loader = new GifLoader();
 
-  // // load a image resource
   const texture = loader.load(
     // resource URL
-    "https://memorypearl.s3.us-east-2.amazonaws.com/programming.gif",
+    "https://memorypearl.s3.us-east-2.amazonaws.com/Pixaloop_02_04_2021_16_56_33_7350000.gif",
     // onLoad callback
     function (reader) {
-      // You probably don't need to set onLoad, as it is handled for you. However,
-      // if you want to manipulate the reader, you can do so here:
       console.log(reader.numFrames());
     },
     // onProgress callback
@@ -59,29 +53,28 @@ export default function SelfGuided() {
 
   const material = new THREE.MeshBasicMaterial({
     map: texture,
-    transparent: true,
+    // transparent: true,
     side: THREE.DoubleSide,
   });
 
-  // const loader = new THREE.TextureLoader();
-  // const material = new THREE.MeshBasicMaterial({
-  //   map: loader.load(
-  //     "https://threejsfundamentals.org/threejs/resources/images/wall.jpg"
-  //   ),
-  // });
-
-  // const cube = new THREE.Mesh(geometry, material);
-  // cube.position.set(-300, 50, 450);
-  // panorama1.add(cube);
-
   const geometry = new THREE.PlaneGeometry(5, 10, 32);
-  // const material = new THREE.MeshBasicMaterial({
-  //   color: 0xffff00,
-  //   side: THREE.DoubleSide,
-  // });
   const plane = new THREE.Mesh(geometry, material);
-  plane.position.set(10, 10, 10);
+  plane.position.set(-5, -5, -15);
   panorama1.add(plane);
+
+  const boxWidth = 100;
+  const boxHeight = 100;
+  const boxDepth = 100;
+  const geometry2 = new THREE.BoxGeometry(boxWidth, boxHeight, boxDepth);
+  const loader2 = new THREE.TextureLoader();
+  const material2 = new THREE.MeshBasicMaterial({
+    map: loader2.load(
+      "https://threejsfundamentals.org/threejs/resources/images/wall.jpg"
+    ),
+  });
+  const cube = new THREE.Mesh(geometry2, material2);
+  cube.position.set(-300, 50, 10);
+  panorama1.add(cube);
 
   viewer.add(panorama1, panorama2, panorama3, panorama4, panorama5, panorama6);
 
