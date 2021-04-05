@@ -1,5 +1,4 @@
 import { useState } from "react";
-// import image from "../assets/mrbean.jpg";
 import { SocialIcon } from "react-social-icons";
 
 export default function About() {

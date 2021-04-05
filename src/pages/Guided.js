@@ -14,14 +14,7 @@ export default function Guided() {
   const [progressEl, setProgessEl] = useState(null);
   const spanEl = useRef(null);
 
-  var panorama1,
-    panorama2,
-    panorama3,
-    panorama4,
-    panorama5,
-    panorama6,
-    viewer,
-    typed;
+  var panorama1, panorama2, panorama3, panorama4, panorama5, panorama6, viewer;
 
   var meterInfospot,
     valveInfospot,
@@ -33,9 +26,10 @@ export default function Guided() {
     setProgessEl(document.querySelector("#progress"));
   }, [setProgessEl]);
 
-  var tweeningDelay = 300,
-    typeStartDelay = 1000,
-    typeSpeed = 50;
+  var tweeningDelay = 300;
+  // var tweeningDelay = 300,
+  // typeStartDelay = 1000,
+  // typeSpeed = 50;
 
   var paragraphs = {
     welcome: [
