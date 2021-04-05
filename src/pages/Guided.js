@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import * as PANOLENS from "panolens";
 import * as THREE from "three";
+import ReactHowler from "react-howler";
 import Typed from "typed.js";
 import one from "../assets/spheres/one.jpg";
 import two from "../assets/spheres/two.jpg";
@@ -227,6 +228,11 @@ export default function Guided() {
           <span id="typed" style={{ whiteSpace: "pre" }} ref={spanEl} />
         </div>
       </div>
+      <ReactHowler
+        src="https://memorypearl.s3.us-east-2.amazonaws.com/269570__vonora__cuckoo-the-nightingale-duet.mp3"
+        playing={true}
+        loop={true}
+      />
     </div>
   );
 }
