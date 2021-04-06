@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { SocialIcon } from "react-social-icons";
+import image from "../assets/mrbean.webp";
 
 export default function About() {
   const [value, setValue] = useState("");
@@ -29,7 +30,7 @@ export default function About() {
       </div>
       <div className="about-artist">
         <div className="flex-image">
-          {/* <img src={image} alt="The artist, Laura Kay Keeling" /> */}
+          <img src={image} alt="The artist, Laura Kay Keeling" />
           <div className="socials">
             <SocialIcon
               fgColor="black"
