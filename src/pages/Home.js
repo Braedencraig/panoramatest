@@ -13,31 +13,11 @@ export default function Home() {
       </div>
       <div className="intro-text">
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
-          incidunt vero laudantium eaque, voluptates voluptatum autem neque
-          quisquam suscipit. Excepturi, reprehenderit? At blanditiis perferendis
-          animi sequi quas quasi velit veniam. Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Ut fuga maiores ex eveniet culpa enim
-          molestiae nesciunt eligendi? A provident similique hic voluptas eius
-          corrupti voluptatibus eveniet cumque dignissimos itaque! Lorem ipsum
-          dolor sit, amet consectetur adipisicing elit. Numquam quae esse
-          repellat accusamus, odio cumque recusandae necessitatibus quasi hic
-          molestias itaque odit facere consequatur aperiam reprehenderit
-          tempora. Error, velit cum!
+          Welcome to The Advantages of Tender Loving Care a Featured Exhibition in the Scotiabank CONTACT Photography Festival by Laura Kay Keeling. This exhibition features the first artworks in Keeling’s new series of moving images and collages that merge sourced imagery with scanned floral elements set in a naturalistic landscape with accompanying audio.
         </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
-          incidunt vero laudantium eaque, voluptates voluptatum autem neque
-          quisquam suscipit. Excepturi, reprehenderit? At blanditiis perferendis
-          animi sequi quas quasi velit veniam. Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Ut fuga maiores ex eveniet culpa enim
-          molestiae nesciunt eligendi? A provident similique hic voluptas eius
-          corrupti voluptatibus eveniet cumque dignissimos itaque! Lorem ipsum
-          dolor sit amet consectetur adipisicing elit. Error optio ex
-          reprehenderit a, quibusdam labore esse consectetur animi facere eum
-          eos libero repudiandae, quas veritatis iste repellat maxime,
-          reiciendis quod.
-        </p>
+        <p>Instructions: Click on the white arrows to move from sphere to sphere, and explore the immersive panoramas to discover Laura's works.</p>
+        <p>For a full image list with details about the work, please visit the About Page.</p>
+        <p>Thank you for being here!</p>
       </div>
       <div className="cyoa-buttons">
         <Link to="/guided">

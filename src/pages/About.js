@@ -15,19 +15,13 @@ export default function About() {
     <div className="fullpage">
       <div className="about-title">
         <h2>The Advantages Of Tender Loving Care</h2>
-        <h2>laurakay.keeling@gmail.com</h2>
       </div>
       <div className="about-blurb">
         <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi omnis
-          corporis maiores accusantium? Pariatur voluptates dolor labore minus?
-          Vel earum quia aspernatur, cupiditate voluptatum assumenda itaque
-          recusandae molestiae et sint. Lorem ipsum dolor, sit amet consectetur
-          adicing elit. Architecto labore veniam eius hic laborum vel
-          laboriosam. Tempore vitae nam officia soluta, magni odio, commodi modi
-          consequatur cupiditate rem architecto reprehenderit.
+          Examining aspects of reciprocal care, Keeling seeks to understand how people form connections with each other and with nature, and how they capture and cherish memories and moments in time. In thinking through these concepts, the artist’s practice has shifted to include not only found images but also plants and flowers that she has grown herself or foraged from neighbours’ garden clippings. Hosted online within a virtual space evocative of a naturalistic outdoor landscape, The Advantages of Tender Loving Care features the first artworks in Keeling’s new series of moving images and collages that merge sourced imagery with scanned floral elements.
         </p>
       </div>
+      <div className="divider"></div>
       <div className="about-artist">
         <div className="flex-image">
           <img src={image} alt="The artist, Laura Kay Keeling" />

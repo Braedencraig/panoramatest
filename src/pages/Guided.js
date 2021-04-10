@@ -4,25 +4,30 @@ import * as PANOLENS from "panolens";
 import * as THREE from "three";
 import ReactHowler from "react-howler";
 import Typed from "typed.js";
+// Spheres
 import one from "../assets/spheres/one.jpg";
 import two from "../assets/spheres/two.jpg";
 import three from "../assets/spheres/three.jpg";
 import four from "../assets/spheres/four.jpg";
 import five from "../assets/spheres/five.jpg";
 import six from "../assets/spheres/six.jpg";
+import seven from "../assets/spheres/seven.jpg";
+// Artworks
+
 
 export default function Guided() {
   const [progressEl, setProgessEl] = useState(null);
   const spanEl = useRef(null);
 
   var panorama1,
-    panorama2,
-    panorama3,
-    panorama4,
-    panorama5,
-    panorama6,
-    viewer,
-    typed;
+      panorama2,
+      panorama3,
+      panorama4,
+      panorama5,
+      panorama6,
+      panorama7,
+      viewer,
+      typed;
 
   var meterInfospot,
     valveInfospot,
@@ -191,19 +196,23 @@ export default function Guided() {
   seatInfospot.addHoverText("Seat", 50);
   topboxInfospot.addHoverText("Box", 50);
 
-  // Panorama
+  // Create spheres
   panorama1 = new PANOLENS.ImagePanorama(one);
   panorama2 = new PANOLENS.ImagePanorama(two);
   panorama3 = new PANOLENS.ImagePanorama(three);
   panorama4 = new PANOLENS.ImagePanorama(four);
   panorama5 = new PANOLENS.ImagePanorama(five);
   panorama6 = new PANOLENS.ImagePanorama(six);
-  // panorama1.link(panorama2, new THREE.Vector3(-807.5, 604.88, -5000.0));
-  // panorama2.link(panorama3, new THREE.Vector3(-807.5, 604.88, -5000.0));
-  // panorama3.link(panorama4, new THREE.Vector3(-807.5, 604.88, -5000.0));
-  // panorama4.link(panorama5, new THREE.Vector3(-807.5, 604.88, -5000.0));
-  // panorama5.link(panorama6, new THREE.Vector3(-807.5, 604.88, -5000.0));
-  // panorama6.link(panorama1, new THREE.Vector3(-807.5, 604.88, -5000.0));
+  panorama7 = new PANOLENS.ImagePanorama(seven);
+  // Link spheres
+  panorama1.link(panorama2, new THREE.Vector3(-207.5, 504.88, -6000.0));
+  panorama2.link(panorama3, new THREE.Vector3(-207.5, 504.88, -6000.0));
+  panorama3.link(panorama4, new THREE.Vector3(-207.5, 504.88, -6000.0));
+  panorama4.link(panorama5, new THREE.Vector3(-207.5, 504.88, -6000.0));
+  panorama5.link(panorama6, new THREE.Vector3(-207.5, 504.88, -6000.0));
+  panorama6.link(panorama7, new THREE.Vector3(-207.5, 504.88, -6000.0));
+  panorama7.link(panorama1, new THREE.Vector3(-207.5, 504.88, -6000.0));
+
   panorama1.addEventListener("progress", onProgress);
   panorama1.addEventListener("load", onLoad);
   panorama1.addEventListener("enter", onEnter);
@@ -221,7 +230,7 @@ export default function Guided() {
     initialLookAt: new THREE.Vector3(0, 0, 5000),
   });
   viewer.OrbitControls.enabled = false;
-  viewer.add(panorama1, panorama2, panorama3, panorama4, panorama5, panorama6);
+  viewer.add(panorama1, panorama2, panorama3, panorama4, panorama5, panorama6, panorama7);
 
   return (
     <div>

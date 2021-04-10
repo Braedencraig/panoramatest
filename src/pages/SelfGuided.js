@@ -3,38 +3,79 @@ import * as PANOLENS from "panolens";
 import * as THREE from "three";
 import GifLoader from "three-gif-loader";
 import ReactHowler from "react-howler";
+// Spheres
 import one from "../assets/spheres/one.jpg";
 import two from "../assets/spheres/two.jpg";
 import three from "../assets/spheres/three.jpg";
 import four from "../assets/spheres/four.jpg";
 import five from "../assets/spheres/five.jpg";
 import six from "../assets/spheres/six.jpg";
-import insta from "../assets/insta01.jpg";
-import imageTwo from "../assets/Laura Kay Keeling She Speaks In Secrets.jpg";
+import seven from "../assets/spheres/seven.jpg";
+// Artworks
+import imagePlaceholder from "../assets/art/artworkPlaceholder.jpg";
+import gifPlaceholder from "../assets/gifs/gifPlaceholder.gif";
+// Audio
+import audio from "../assets/audio/audio.mp3"
 
-export default function SelfGuided() {
-  let panorama1, panorama2, panorama3, panorama4, panorama5, panorama6, viewer;
+export default function SelfGuided() {  
+  let panorama1, 
+      panorama2, 
+      panorama3, 
+      panorama4, 
+      panorama5, 
+      panorama6, 
+      panorama7, 
+      viewer,
+      container;
 
+  container = document.getElementById('#container')
+
+  // Create spheres
+  // GoogleStreetviewPanorama( 'JmSoPsBPhqWvaBmOqfFzgA' ) could do this to save on file size
   panorama1 = new PANOLENS.ImagePanorama(one);
   panorama2 = new PANOLENS.ImagePanorama(two);
   panorama3 = new PANOLENS.ImagePanorama(three);
   panorama4 = new PANOLENS.ImagePanorama(four);
   panorama5 = new PANOLENS.ImagePanorama(five);
   panorama6 = new PANOLENS.ImagePanorama(six);
-  panorama1.link(panorama2, new THREE.Vector3(-807.5, 604.88, -5000.0));
-  panorama2.link(panorama3, new THREE.Vector3(-807.5, 604.88, -5000.0));
-  panorama3.link(panorama4, new THREE.Vector3(-807.5, 604.88, -5000.0));
-  panorama4.link(panorama5, new THREE.Vector3(-807.5, 604.88, -5000.0));
-  panorama5.link(panorama6, new THREE.Vector3(-807.5, 604.88, -5000.0));
-  panorama6.link(panorama1, new THREE.Vector3(-807.5, 604.88, -5000.0));
+  panorama7 = new PANOLENS.ImagePanorama(seven);
 
-  viewer = new PANOLENS.Viewer({ autoHideInfospot: false });
+  // Link spheres, TODO: Move these so that you cant see the lag in image loading on and off or add loader.
+  panorama1.link(panorama2, new THREE.Vector3(-207.5, 504.88, -6000.0));
+  panorama2.link(panorama3, new THREE.Vector3(-6907.5, 304.88, 1000.0));
+  panorama3.link(panorama4, new THREE.Vector3(-207.5, 504.88, -6000.0));
+  panorama4.link(panorama5, new THREE.Vector3(-207.5, 504.88, -6000.0));
+  panorama5.link(panorama6, new THREE.Vector3(-207.5, 504.88, -6000.0));
+  panorama6.link(panorama7, new THREE.Vector3(-207.5, 504.88, -6000.0));
+  panorama7.link(panorama1, new THREE.Vector3(-207.5, 504.88, -6000.0));
 
+  // Create viewer and add panoramas
+  viewer = new PANOLENS.Viewer({ autoHideInfospot: false, container: container });
+  viewer.add(panorama1);
+  viewer.add(panorama2);
+  viewer.add(panorama3);
+  viewer.add(panorama4);
+  viewer.add(panorama5);
+  viewer.add(panorama6);
+  viewer.add(panorama7);
+
+  // Gif loader
   const loader = new GifLoader();
 
-  const texture = loader.load(
-    // resource URL
-    "https://memorypearl.s3.us-east-2.amazonaws.com/Pixaloop_02_04_2021_16_56_33_7350000.gif",
+  // Sphere one artwork - contains one
+  const geometryOne = new THREE.PlaneGeometry(300, 300, 300);
+  const loaderOne = new THREE.TextureLoader();
+  const materialOne = new THREE.MeshBasicMaterial({
+    map: loaderOne.load(imagePlaceholder),
+    side: THREE.DoubleSide,
+  });
+  const planeOne = new THREE.Mesh(geometryOne, materialOne);
+  planeOne.position.set(-30, 100, 340);
+  panorama1.add(planeOne);
+
+  // Sphere two artwork - contains two & three
+  const textureTwo = loader.load(
+    gifPlaceholder,
     // onLoad callback
     function (reader) {
       console.log(reader.numFrames());
@@ -48,78 +89,177 @@ export default function SelfGuided() {
       console.error("An error happened.");
     }
   );
-
-  const material = new THREE.MeshBasicMaterial({
-    map: texture,
+  const materialTwo = new THREE.MeshBasicMaterial({
+    map: textureTwo,
     // transparent: true,
     side: THREE.DoubleSide,
   });
+  const geometryTwo = new THREE.PlaneGeometry(300, 300, 300);
+  const planeTwo = new THREE.Mesh(geometryTwo, materialTwo);
+  planeTwo.position.set(-160, 220, 420);
+  planeTwo.rotation.y -= 0.3;
+  panorama2.add(planeTwo);
 
-  const geometry = new THREE.PlaneGeometry(300, 300, 300);
-  const plane = new THREE.Mesh(geometry, material);
-  plane.position.set(230, -5, 190);
-  plane.rotation.y += 1.2;
-  panorama1.add(plane);
-
-  const boxWidth = 100;
-  const boxHeight = 100;
-  const boxDepth = 100;
-  const geometry2 = new THREE.BoxGeometry(boxWidth, boxHeight, boxDepth);
-  const loader2 = new THREE.TextureLoader();
-  const material2 = new THREE.MeshBasicMaterial({
-    map: loader2.load(insta),
+  const geometryThree = new THREE.PlaneGeometry(300, 300, 300);
+  const loaderThree = new THREE.TextureLoader();
+  const materialThree = new THREE.MeshBasicMaterial({
+    map: loaderThree.load(imagePlaceholder),
+    side: THREE.DoubleSide,
   });
-  const cube = new THREE.Mesh(geometry2, material2);
-  cube.position.set(-160, 10, 10);
-  panorama1.add(cube);
+  const planeThree = new THREE.Mesh(geometryThree, materialThree);
+  planeThree.position.set(10, 210, -440);
+  panorama2.add(planeThree);
 
-  const geometry3 = new THREE.BoxGeometry(boxWidth, 150, boxDepth);
-  const loader3 = new THREE.TextureLoader();
-  const material3 = new THREE.MeshBasicMaterial({
-    map: loader3.load(imageTwo),
+  // Sphere three artwork - contains four
+  const geometryFour = new THREE.PlaneGeometry(300, 300, 300);
+  const loaderFour = new THREE.TextureLoader();
+  const materialFour = new THREE.MeshBasicMaterial({
+    map: loaderFour.load(imagePlaceholder),
+    side: THREE.DoubleSide,
   });
+  const planeFour = new THREE.Mesh(geometryFour, materialFour);
+  planeFour.position.set(-450, 130, 90);
+  planeFour.rotation.y += 1.8;
+  panorama3.add(planeFour);
 
-  const cube2 = new THREE.Mesh(geometry3, material3);
-  cube2.position.set(150, 10, -110);
-  cube2.rotation.y += 0.8;
-  panorama1.add(cube2);
+  // Sphere four artwork - contains five & six
+  const geometryFive = new THREE.PlaneGeometry(200, 200, 200);
+  const loaderFive = new THREE.TextureLoader();
+  const materialFive = new THREE.MeshBasicMaterial({
+    map: loaderFive.load(imagePlaceholder),
+    side: THREE.DoubleSide,
+  });
+  const planeFive = new THREE.Mesh(geometryFive, materialFive);
+  planeFive.position.set(-350, -10, 10);
+  planeFive.rotation.y += 1.7;
+  panorama4.add(planeFive);
 
-  var light = new THREE.DirectionalLight(0xffffff);
-  light.position.set(1, 1, 1).normalize();
-  panorama1.add(light);
-
-  var loaderFont = new THREE.FontLoader();
-  loaderFont.load(
-    "https://threejs.org/examples/fonts/helvetiker_regular.typeface.json",
-    function (font) {
-      var textGeometry = new THREE.TextGeometry("text", {
-        font: font,
-        size: 10,
-        height: 10,
-        curveSegments: 4,
-        bevelThickness: 1,
-        bevelSize: 1,
-        bevelEnabled: true,
-      });
-
-      var textMaterial = new THREE.MeshPhongMaterial({
-        color: 0xffffff,
-        flatShading: true,
-      });
-
-      var meshFont = new THREE.Mesh(textGeometry, textMaterial);
-      meshFont.position.set(-120, 5, -20);
-      meshFont.rotation.y += 1.5;
-      panorama1.add(meshFont);
+  const textureSix = loader.load(
+    gifPlaceholder,
+    // onLoad callback
+    function (reader) {
+      console.log(reader.numFrames());
+    },
+    // onProgress callback
+    function (xhr) {
+      console.log(`${(xhr.loaded / xhr.total) * 100}% loaded`);
+    },
+    // onError callback
+    function () {
+      console.error("An error happened.");
     }
   );
+  const materialSix = new THREE.MeshBasicMaterial({
+    map: textureSix,
+    // transparent: true,
+    side: THREE.DoubleSide,
+  });
+  const geometrySix = new THREE.PlaneGeometry(250, 250, 250);
+  const planeSix = new THREE.Mesh(geometrySix, materialSix);
+  planeSix.position.set(350, 80, -60);
+  planeSix.rotation.y += 1.7;
+  panorama4.add(planeSix);
 
-  viewer.add(panorama1, panorama2, panorama3, panorama4, panorama5, panorama6);
+  // Sphere five artwork - contains seven & eight
+  const geometrySeven = new THREE.PlaneGeometry(300, 300, 300);
+  const loaderSeven = new THREE.TextureLoader();
+  const materialSeven = new THREE.MeshBasicMaterial({
+    map: loaderSeven.load(imagePlaceholder),
+    side: THREE.DoubleSide,
+  });
+  const planeSeven = new THREE.Mesh(geometrySeven, materialSeven);
+  planeSeven.position.set(-350, 100, 10);
+  planeSeven.rotation.y += 1.7;
+  panorama5.add(planeSeven);
+
+  const textureEight = loader.load(
+    gifPlaceholder,
+    // onLoad callback
+    function (reader) {
+      console.log(reader.numFrames());
+    },
+    // onProgress callback
+    function (xhr) {
+      console.log(`${(xhr.loaded / xhr.total) * 100}% loaded`);
+    },
+    // onError callback
+    function () {
+      console.error("An error happened.");
+    }
+  );
+  const materialEight = new THREE.MeshBasicMaterial({
+    map: textureEight,
+    // transparent: true,
+    side: THREE.DoubleSide,
+  });
+  const geometryEight = new THREE.PlaneGeometry(300, 300, 300);
+  const planeEight = new THREE.Mesh(geometryEight, materialEight);
+  planeEight.position.set(350, 80, -60);
+  planeEight.rotation.y += 1.7;
+  panorama5.add(planeEight);
+
+   // Sphere six artwork - contains nine
+   const geometryNine = new THREE.PlaneGeometry(300, 300, 300);
+   const loaderNine = new THREE.TextureLoader();
+   const materialNine = new THREE.MeshBasicMaterial({
+     map: loaderNine.load(imagePlaceholder),
+     side: THREE.DoubleSide,
+   });
+   const planeNine = new THREE.Mesh(geometryNine, materialNine);
+   planeNine.position.set(-350, 160, -220);
+   planeNine.rotation.y += 1;
+   panorama6.add(planeNine);
+
+   // Sphere seven artwork - contains ten
+   const geometryTen = new THREE.PlaneGeometry(250, 250, 250);
+   const loaderTen = new THREE.TextureLoader();
+   const materialTen = new THREE.MeshBasicMaterial({
+     map: loaderTen.load(imagePlaceholder),
+     side: THREE.DoubleSide,
+   });
+   const planeTen = new THREE.Mesh(geometryTen, materialTen);
+   planeTen.position.set(-200, 160, -350);
+   planeTen.rotation.y += 0.4;
+   panorama7.add(planeTen);
+
+
+
+
+  // var light = new THREE.DirectionalLight(0xffffff);
+  // light.position.set(1, 1, 1).normalize();
+  // panorama1.add(light);
+
+  // var loaderFont = new THREE.FontLoader();
+  // loaderFont.load(
+  //   "https://threejs.org/examples/fonts/helvetiker_regular.typeface.json",
+  //   function (font) {
+  //     var textGeometry = new THREE.TextGeometry("text", {
+  //       font: font,
+  //       size: 10,
+  //       height: 10,
+  //       curveSegments: 4,
+  //       bevelThickness: 1,
+  //       bevelSize: 1,
+  //       bevelEnabled: true,
+  //     });
+
+  //     var textMaterial = new THREE.MeshPhongMaterial({
+  //       color: 0xffffff,
+  //       flatShading: true,
+  //     });
+
+  //     var meshFont = new THREE.Mesh(textGeometry, textMaterial);
+  //     meshFont.position.set(-120, 5, -20);
+  //     meshFont.rotation.y += 1.5;
+  //     panorama1.add(meshFont);
+  //   }
+  // );
 
   return (
     <>
+    <div id="container"></div>
       <ReactHowler
-        src="https://memorypearl.s3.us-east-2.amazonaws.com/269570__vonora__cuckoo-the-nightingale-duet.mp3"
+        src={audio}
         playing={true}
         loop={true}
       />

@@ -34,33 +34,6 @@ body {
   height: 100%;
 }
 
-#desc-container {
-  max-width: 500px;
-  max-height: 500px;
-  min-width: 200px;
-  min-height: 250px;
-  background: black;
-  color: #000;
-  border-radius: 3px;
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
-  display: none;
-  border: 10px solid black;
-}
-
-#desc-container > iframe {
-  /* border: none;
-  width: 100%;
-  height: 400px; */
-  /* RESPONSIVE IFRAME?! */
-  /* border: 10px solid black; */
-}
-
-/* img {
-  height: 300px !important;
-  width: 300px !important;
-} */
-
 /* Position and sizing of burger button */
 .bm-burger-button {
   position: fixed;
@@ -68,6 +41,12 @@ body {
   height: 30px;
   right: 36px;
   top: 36px;
+}
+
+.divider {
+  height: 5px;
+  color: white;
+  width: 100%;
 }
 
 /* Color/shape of burger icon bars */
@@ -140,14 +119,19 @@ h2 {
 
 .intro-title,
 .about-title {
-  font-size: 20px;
-  margin-top: 5%;
+  font-size: 30px;
+  margin-top: 10%;
   text-align: center;
 }
 
 .intro-title h2,
 .about-title h2 {
+  font-size: 30px;
+}
+
+.intro-text p {
   font-size: 20px;
+  font-weight: bold;
 }
 
 .intro-text,
@@ -158,6 +142,11 @@ h2 {
   justify-content: center;
   align-items: center;
   text-align: center;
+}
+
+.about-blurb p {
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .cyoa-buttons {
@@ -184,6 +173,8 @@ button {
   margin: 0 20px;
   transition: all 0.4s;
   cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 button:hover {
@@ -335,4 +326,19 @@ input {
 
 video {
   display: none;
+}
+
+
+#progress {
+  width: 0;
+  height: 5px;
+  position: fixed;
+  top: 0;
+  background: #fff;
+  -webkit-transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease;
+}
+
+#progress.finish {
+  opacity: 0;
 }
