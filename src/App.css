@@ -4,7 +4,7 @@ body {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background-color: #000;
+  background-color: #444444;
   color: white;
 }
 
@@ -13,20 +13,16 @@ a:visited {
   color: #bdc3c7;
 }
 
+canvas {
+  width: inherit !important;
+}
+
 .credit {
   position: absolute;
   text-align: center;
   width: 100%;
   padding: 20px 0;
   color: #fff;
-}
-
-html,
-body {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  margin: 0;
 }
 
 #container {
@@ -44,8 +40,8 @@ body {
 }
 
 .divider {
-  height: 5px;
-  color: white;
+  height: 3px;
+  background: white;
   width: 100%;
 }
 
@@ -67,7 +63,7 @@ body {
 
 /* Color/shape of close button cross */
 .bm-cross {
-  background: black;
+  background: #444444;
 }
 
 /*
@@ -95,18 +91,24 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
 /* Wrapper for item list */
 .bm-item-list {
-  color: black;
+  color: #444444;
   padding: 0.8em;
 }
 
 /* Individual item */
 .bm-item {
   display: inline-block;
+  outline: none;
+}
+
+.bm-item li:hover {
+  text-decoration: underline;
 }
 
 /* Styling of overlay */
 .bm-overlay {
   background: rgba(0, 0, 0, 0.3);
+  top: 0;
 }
 
 h2 {
@@ -179,12 +181,12 @@ button {
 
 button:hover {
   background: white;
-  color: black;
+  color: #444444;
 }
 
 a,
 a:visited {
-  color: black;
+  color: #444444;
   text-decoration: none;
 }
 
@@ -209,7 +211,6 @@ a:hover {
   margin-top: 20px;
   display: flex;
   flex-direction: row;
-  width: 45%;
   margin: 0 auto;
 }
 
@@ -223,7 +224,8 @@ a:hover {
 
 .socials {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .socials a {
@@ -238,6 +240,7 @@ a:hover {
   text-align: center;
   display: flex;
   flex-direction: column;
+  margin-bottom: 5%;
 }
 
 form {
@@ -246,7 +249,7 @@ form {
 }
 
 input {
-  background: black;
+  background: #444444;
   color: white;
   border: 2px solid white;
   padding: 10px;
@@ -295,39 +298,9 @@ input {
   opacity: 0;
 }
 
-/* .typed-cursor {
-  opacity: 1;
-  animation: typedjsBlink 0.7s infinite;
-  -webkit-animation: typedjsBlink 0.7s infinite;
-  animation: typedjsBlink 0.7s infinite;
-}
-@keyframes typedjsBlink {
-  50% {
-    opacity: 0;
-  }
-}
-@-webkit-keyframes typedjsBlink {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-.typed-fade-out {
-  opacity: 0;
-  transition: opacity 0.25s;
-  -webkit-animation: 0;
-  animation: 0;
-} */
-
 video {
   display: none;
 }
-
 
 #progress {
   width: 0;
@@ -341,4 +314,146 @@ video {
 
 #progress.finish {
   opacity: 0;
+}
+
+
+@keyframes fadeIn{
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn ease 10s;
+  -webkit-animation: fadeIn ease 10s;
+  -moz-animation: fadeIn ease 10s;
+  -o-animation: fadeIn ease 10s;
+  -ms-animation: fadeIn ease 10s;
+}
+
+.artist, .land {
+  margin-top: 2%;
+}
+
+.artist h3, .land h3 {
+  font-size: 30px;
+}
+
+.about-title h2 {
+  font-size: 40px;
+}
+
+.artist-blurb, .artist-blurb p, .land-blurb, .land-blurb p {
+  margin-top: 0;
+}
+
+p.location {
+  margin-top: 2%;
+}
+
+.info, .thanks {
+  display: flex;
+  flex-direction: column;
+  width: 66%;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.info img {
+  max-width: 500px;
+  margin-bottom: 1%;
+}
+
+.info a {
+  font-weight: bold;
+}
+
+.infoText {
+  margin: 0;
+  padding: 0;
+}
+
+.one {
+  margin-bottom: 10px;
+}
+
+.thanks {
+  font-weight: bold;
+  margin-top: 2%;
+}
+
+.thanks a {
+  color: white;
+}
+
+.thanks a:hover {
+  text-decoration: underline;
+}
+
+.flex-contact img {
+  width: 100px;
+}
+
+.thanks p {
+  margin: 0 auto;
+  margin-bottom: 2%;
+}
+
+.img-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2%;
+}
+
+.flex-contact img.oac {
+  width: 200px;
+}
+
+.flex-contact img {
+  margin: 0 5px;
+}
+
+.image-details {
+  text-align: center;
+  margin: 2% 0;
 }

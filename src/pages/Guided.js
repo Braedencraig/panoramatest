@@ -3,6 +3,7 @@ import React, { useEffect, useState, useRef } from "react";
 import * as PANOLENS from "panolens";
 import * as THREE from "three";
 import ReactHowler from "react-howler";
+import GifLoader from "three-gif-loader";
 import Typed from "typed.js";
 // Spheres
 import one from "../assets/spheres/one.jpg";
@@ -13,6 +14,10 @@ import five from "../assets/spheres/five.jpg";
 import six from "../assets/spheres/six.jpg";
 import seven from "../assets/spheres/seven.jpg";
 // Artworks
+import imagePlaceholder from "../assets/art/artworkPlaceholder.jpg";
+import gifPlaceholder from "../assets/gifs/gifPlaceholder.gif";
+// Audio
+import audio from "../assets/audio/audio.mp3"
 
 
 export default function Guided() {
@@ -204,14 +209,17 @@ export default function Guided() {
   panorama5 = new PANOLENS.ImagePanorama(five);
   panorama6 = new PANOLENS.ImagePanorama(six);
   panorama7 = new PANOLENS.ImagePanorama(seven);
-  // Link spheres
-  panorama1.link(panorama2, new THREE.Vector3(-207.5, 504.88, -6000.0));
-  panorama2.link(panorama3, new THREE.Vector3(-207.5, 504.88, -6000.0));
-  panorama3.link(panorama4, new THREE.Vector3(-207.5, 504.88, -6000.0));
-  panorama4.link(panorama5, new THREE.Vector3(-207.5, 504.88, -6000.0));
-  panorama5.link(panorama6, new THREE.Vector3(-207.5, 504.88, -6000.0));
-  panorama6.link(panorama7, new THREE.Vector3(-207.5, 504.88, -6000.0));
-  panorama7.link(panorama1, new THREE.Vector3(-207.5, 504.88, -6000.0));
+  
+ // Link spheres
+ panorama1.link(panorama2, new THREE.Vector3(-207.5, 504.88, -6000.0), 600, `${process.env.PUBLIC_URL + 'next.png'}`);
+ // Edgecase for bug in panolens for second image useage, has to do with caching on their end.
+ panorama2.link(panorama3, new THREE.Vector3(-6907.5, 304.88, 1000.0), 600, `${process.env.PUBLIC_URL + 'next.png'}`);
+ panorama2.link(panorama3, new THREE.Vector3(-6907.5, 304.88, 1000.0), 600, `${process.env.PUBLIC_URL + 'next.png'}`);
+ panorama3.link(panorama4, new THREE.Vector3(-207.5, 504.88, -6000.0), 600, `${process.env.PUBLIC_URL + 'next.png'}`);
+ panorama4.link(panorama5, new THREE.Vector3(-207.5, 504.88, -6000.0), 600, `${process.env.PUBLIC_URL + 'next.png'}`);
+ panorama5.link(panorama6, new THREE.Vector3(-207.5, 504.88, -6000.0), 600, `${process.env.PUBLIC_URL + 'next.png'}`);
+ panorama6.link(panorama7, new THREE.Vector3(-207.5, 504.88, -6000.0), 600, `${process.env.PUBLIC_URL + 'next.png'}`);
+ panorama7.link(panorama1, new THREE.Vector3(-207.5, 504.88, -6000.0), 600, `${process.env.PUBLIC_URL + 'next.png'}`);
 
   panorama1.addEventListener("progress", onProgress);
   panorama1.addEventListener("load", onLoad);

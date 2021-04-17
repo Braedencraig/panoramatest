@@ -1,8 +1,17 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 export default function Home() {
   const [show, setShow] = useState(true);
+
+  useEffect(() => {
+    const body = document.getElementsByTagName('body')[0]
+    body.style.overflow = 'auto'
+    const panolens = Array.from(document.getElementsByClassName('panolens-container'))
+    panolens.map(pan => {
+      return pan.parentNode.removeChild(pan);
+    })
+  })
 
   return (
     <div className={`fullpage ${show ? "" : "hide"}`}>
@@ -15,7 +24,7 @@ export default function Home() {
         <p>
           Welcome to The Advantages of Tender Loving Care a Featured Exhibition in the Scotiabank CONTACT Photography Festival by Laura Kay Keeling. This exhibition features the first artworks in Keeling’s new series of moving images and collages that merge sourced imagery with scanned floral elements set in a naturalistic landscape with accompanying audio.
         </p>
-        <p>Instructions: Click on the white arrows to move from sphere to sphere, and explore the immersive panoramas to discover Laura's works.</p>
+        <p>Instructions: Click on the flowers to move from sphere to sphere, and explore the immersive panoramas to discover Laura's works.</p>
         <p>For a full image list with details about the work, please visit the About Page.</p>
         <p>Thank you for being here!</p>
       </div>

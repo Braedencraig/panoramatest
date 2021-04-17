@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import * as PANOLENS from "panolens";
 import * as THREE from "three";
 import GifLoader from "three-gif-loader";
@@ -18,6 +18,12 @@ import gifPlaceholder from "../assets/gifs/gifPlaceholder.gif";
 import audio from "../assets/audio/audio.mp3"
 
 export default function SelfGuided() {  
+
+  useEffect(() => {
+    const body = document.getElementsByTagName('body')[0]
+    body.style.overflow = 'hidden'
+  })
+
   let panorama1, 
       panorama2, 
       panorama3, 
@@ -25,13 +31,9 @@ export default function SelfGuided() {
       panorama5, 
       panorama6, 
       panorama7, 
-      viewer,
-      container;
-
-  container = document.getElementById('#container')
+      viewer;
 
   // Create spheres
-  // GoogleStreetviewPanorama( 'JmSoPsBPhqWvaBmOqfFzgA' ) could do this to save on file size
   panorama1 = new PANOLENS.ImagePanorama(one);
   panorama2 = new PANOLENS.ImagePanorama(two);
   panorama3 = new PANOLENS.ImagePanorama(three);
@@ -40,17 +42,19 @@ export default function SelfGuided() {
   panorama6 = new PANOLENS.ImagePanorama(six);
   panorama7 = new PANOLENS.ImagePanorama(seven);
 
-  // Link spheres, TODO: Move these so that you cant see the lag in image loading on and off or add loader.
-  panorama1.link(panorama2, new THREE.Vector3(-207.5, 504.88, -6000.0));
-  panorama2.link(panorama3, new THREE.Vector3(-6907.5, 304.88, 1000.0));
-  panorama3.link(panorama4, new THREE.Vector3(-207.5, 504.88, -6000.0));
-  panorama4.link(panorama5, new THREE.Vector3(-207.5, 504.88, -6000.0));
-  panorama5.link(panorama6, new THREE.Vector3(-207.5, 504.88, -6000.0));
-  panorama6.link(panorama7, new THREE.Vector3(-207.5, 504.88, -6000.0));
-  panorama7.link(panorama1, new THREE.Vector3(-207.5, 504.88, -6000.0));
+  // Link spheres
+  panorama1.link(panorama2, new THREE.Vector3(-207.5, 504.88, -6000.0), 600, `${process.env.PUBLIC_URL + 'next.png'}`);
+  // Edgecase for bug in panolens for second image useage, has to do with caching on their end.
+  panorama2.link(panorama3, new THREE.Vector3(-6907.5, 304.88, 1000.0), 600, `${process.env.PUBLIC_URL + 'next.png'}`);
+  panorama2.link(panorama3, new THREE.Vector3(-6907.5, 304.88, 1000.0), 600, `${process.env.PUBLIC_URL + 'next.png'}`);
+  panorama3.link(panorama4, new THREE.Vector3(-207.5, 504.88, -6000.0), 600, `${process.env.PUBLIC_URL + 'next.png'}`);
+  panorama4.link(panorama5, new THREE.Vector3(-207.5, 504.88, -6000.0), 600, `${process.env.PUBLIC_URL + 'next.png'}`);
+  panorama5.link(panorama6, new THREE.Vector3(-207.5, 504.88, -6000.0), 600, `${process.env.PUBLIC_URL + 'next.png'}`);
+  panorama6.link(panorama7, new THREE.Vector3(-207.5, 504.88, -6000.0), 600, `${process.env.PUBLIC_URL + 'next.png'}`);
+  panorama7.link(panorama1, new THREE.Vector3(-207.5, 504.88, -6000.0), 600, `${process.env.PUBLIC_URL + 'next.png'}`);
 
   // Create viewer and add panoramas
-  viewer = new PANOLENS.Viewer({ autoHideInfospot: false, container: container });
+  viewer = new PANOLENS.Viewer({ autoHideInfospot: false });
   viewer.add(panorama1);
   viewer.add(panorama2);
   viewer.add(panorama3);
@@ -58,6 +62,57 @@ export default function SelfGuided() {
   viewer.add(panorama5);
   viewer.add(panorama6);
   viewer.add(panorama7);
+
+  const container = document.getElementsByClassName('panolens-container')[0]
+
+  panorama1.addEventListener( 'enter-fade-start', function(){
+    container.classList.add('fade-in')
+    setTimeout(() => {
+      container.classList.remove('fade-in')
+    }, 6000)
+  });
+
+  panorama2.addEventListener( 'enter-fade-start', function(){
+    container.classList.add('fade-in')
+    setTimeout(() => {
+      container.classList.remove('fade-in')
+    }, 6000)
+  });
+
+  panorama3.addEventListener( 'enter-fade-start', function(){
+    container.classList.add('fade-in')
+    setTimeout(() => {
+      container.classList.remove('fade-in')
+    }, 6000)
+  });
+
+  panorama4.addEventListener( 'enter-fade-start', function(){
+    container.classList.add('fade-in')
+    setTimeout(() => {
+      container.classList.remove('fade-in')
+    }, 6000)
+  });
+
+  panorama5.addEventListener( 'enter-fade-start', function(){
+    container.classList.add('fade-in')
+    setTimeout(() => {
+      container.classList.remove('fade-in')
+    }, 6000)
+  });
+
+  panorama6.addEventListener( 'enter-fade-start', function(){
+    container.classList.add('fade-in')
+    setTimeout(() => {
+      container.classList.remove('fade-in')
+    }, 6000)
+  });
+
+  panorama7.addEventListener( 'enter-fade-start', function(){
+    container.classList.add('fade-in')
+    setTimeout(() => {
+      container.classList.remove('fade-in')
+    }, 6000)
+  });
 
   // Gif loader
   const loader = new GifLoader();
@@ -257,7 +312,6 @@ export default function SelfGuided() {
 
   return (
     <>
-    <div id="container"></div>
       <ReactHowler
         src={audio}
         playing={true}
