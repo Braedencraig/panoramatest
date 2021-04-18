@@ -18,7 +18,6 @@ import gifPlaceholder from "../assets/gifs/gifPlaceholder.gif";
 // Audio
 import audio from "../assets/audio/audio.mp3"
 
-
 export default function Guided() {
   const [progressEl, setProgessEl] = useState(null);
   const spanEl = useRef(null);
@@ -33,7 +32,16 @@ export default function Guided() {
       panorama8,
       viewer;
 
-  var sphereOneArt, sphereTwoArt1, sphereTwoArt2;
+  var sphereOneArt, 
+  sphereTwoArt1, 
+  sphereTwoArt2, 
+  sphereThreeArt, 
+  sphereFourArt1, 
+  sphereFourArt2, 
+  sphereFiveArt1, 
+  sphereFiveArt2,
+  sphereSixArt,
+  sphereSevenArt;
 
   useEffect(() => {
     setProgessEl(document.querySelector("#progress"));
@@ -75,8 +83,6 @@ export default function Guided() {
     }, 5000);
   }
 
-  
-
   function moveToSphereTwo() {
     viewer.remove(panorama1)
     viewer.setPanorama(panorama2)
@@ -96,30 +102,29 @@ export default function Guided() {
     // delayExecute(sphereTwoArt1.focus.bind(sphereTwoArt1, 20000), tweeningDelay);
   }
 
-  // function onSeatTourComplete() {
-  //   delayExecute(topboxInfospot.focus.bind(topboxInfospot), tweeningDelay);
-  //   setTimeout(() => {
-  //     onTopboxTourComplete();
-  //   }, 4000);
-  // }
-
-  // function onTopboxTourComplete() {
-  //   delayExecute(endingInfospot.focus.bind(endingInfospot), tweeningDelay);
-  //   setTimeout(() => {
-  //     // viewer.OrbitControls.enabled = true;
-  //     viewer.setPanorama(panorama2);
-  //   }, 5000);
-  // }
-
   // Infospots
   sphereOneArt = new PANOLENS.Infospot(10e-7);
   sphereTwoArt1 = new PANOLENS.Infospot(10e-7);
   sphereTwoArt2 = new PANOLENS.Infospot(10e-7);
-  
+  sphereThreeArt = new PANOLENS.Infospot(10e-7);
+  sphereFourArt1 = new PANOLENS.Infospot(10e-7);
+  sphereFourArt2 = new PANOLENS.Infospot(10e-7);
+  sphereFiveArt1 = new PANOLENS.Infospot(10e-7);
+  sphereFiveArt2 = new PANOLENS.Infospot(10e-7);
+  sphereSixArt = new PANOLENS.Infospot(10e-7);
+  sphereSevenArt = new PANOLENS.Infospot(10e-7);
+  // Infospots positioning
   sphereOneArt.position.set(-30, 100, 340);
   sphereTwoArt1.position.set(-160, 220, 420);
   sphereTwoArt2.position.set(10, 210, -440);
-  
+  sphereThreeArt.position.set(-450, 130, 90);
+  sphereFourArt1.position.set(-350, -10, 10);
+  sphereFourArt2.position.set(350, 80, -60);
+  sphereFiveArt1.position.set(-350, 100, 10);
+  sphereFiveArt2.position.set(350, 80, -60);
+  sphereSixArt.position.set(-350, 160, -220);
+  sphereSevenArt.position.set(-200, 160, -350);
+
   // Create spheres
   panorama1 = new PANOLENS.ImagePanorama(one);
   panorama2 = new PANOLENS.ImagePanorama(two);
