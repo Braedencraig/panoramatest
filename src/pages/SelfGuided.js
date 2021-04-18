@@ -67,64 +67,64 @@ export default function SelfGuided() {
   viewer.add(panorama7);
   viewer.add(panorama8);
 
-  const container = document.getElementsByClassName('panolens-container')[0]
+  // const container = document.getElementsByClassName('panolens-container')[0]
 
-  panorama1.addEventListener( 'enter-fade-start', function(){
-    container.classList.add('fade-in')
-    setTimeout(() => {
-      container.classList.remove('fade-in')
-    }, 6000)
-  });
+  // panorama1.addEventListener( 'enter-fade-start', function(){
+  //   container.classList.add('fade-in')
+  //   setTimeout(() => {
+  //     container.classList.remove('fade-in')
+  //   }, 6000)
+  // });
 
-  panorama2.addEventListener( 'enter-fade-start', function(){
-    container.classList.add('fade-in')
-    setTimeout(() => {
-      container.classList.remove('fade-in')
-    }, 6000)
-  });
+  // panorama2.addEventListener( 'enter-fade-start', function(){
+  //   container.classList.add('fade-in')
+  //   setTimeout(() => {
+  //     container.classList.remove('fade-in')
+  //   }, 6000)
+  // });
 
-  panorama3.addEventListener( 'enter-fade-start', function(){
-    container.classList.add('fade-in')
-    setTimeout(() => {
-      container.classList.remove('fade-in')
-    }, 6000)
-  });
+  // panorama3.addEventListener( 'enter-fade-start', function(){
+  //   container.classList.add('fade-in')
+  //   setTimeout(() => {
+  //     container.classList.remove('fade-in')
+  //   }, 6000)
+  // });
 
-  panorama4.addEventListener( 'enter-fade-start', function(){
-    container.classList.add('fade-in')
-    setTimeout(() => {
-      container.classList.remove('fade-in')
-    }, 6000)
-  });
+  // panorama4.addEventListener( 'enter-fade-start', function(){
+  //   container.classList.add('fade-in')
+  //   setTimeout(() => {
+  //     container.classList.remove('fade-in')
+  //   }, 6000)
+  // });
 
-  panorama5.addEventListener( 'enter-fade-start', function(){
-    container.classList.add('fade-in')
-    setTimeout(() => {
-      container.classList.remove('fade-in')
-    }, 6000)
-  });
+  // panorama5.addEventListener( 'enter-fade-start', function(){
+  //   container.classList.add('fade-in')
+  //   setTimeout(() => {
+  //     container.classList.remove('fade-in')
+  //   }, 6000)
+  // });
 
-  panorama6.addEventListener( 'enter-fade-start', function(){
-    container.classList.add('fade-in')
-    setTimeout(() => {
-      container.classList.remove('fade-in')
-    }, 6000)
-  });
+  // panorama6.addEventListener( 'enter-fade-start', function(){
+  //   container.classList.add('fade-in')
+  //   setTimeout(() => {
+  //     container.classList.remove('fade-in')
+  //   }, 6000)
+  // });
 
-  panorama7.addEventListener( 'enter-fade-start', function(){
-    container.classList.add('fade-in')
-    setTimeout(() => {
-      container.classList.remove('fade-in')
-    }, 6000)
-  });
+  // panorama7.addEventListener( 'enter-fade-start', function(){
+  //   container.classList.add('fade-in')
+  //   setTimeout(() => {
+  //     container.classList.remove('fade-in')
+  //   }, 6000)
+  // });
 
-  panorama8.addEventListener( 'enter-fade-start', function(){
-    const end = Array.from(document.getElementsByClassName('end'))
-    if(end) {
-      end[0].style.display = 'flex'
-      end[0].classList.add('show')
-    }
-  });  
+  // panorama8.addEventListener( 'enter-fade-start', function(){
+  //   const end = Array.from(document.getElementsByClassName('end'))
+  //   if(end) {
+  //     end[0].style.display = 'flex'
+  //     end[0].classList.add('show')
+  //   }
+  // });  
 
   // Gif loader
   const loader = new GifLoader();
@@ -296,10 +296,10 @@ export default function SelfGuided() {
         playing={true}
         loop={true}
       />
-      <div className="end">
+      {/* <div className="end">
         <h2>Thank you for coming!</h2>
         <p>Please visit the <a href="/about">about page</a> to learn more about the artist and the exibition.</p>
-      </div>
+      </div> */}
     </>
   );
 }

@@ -80,7 +80,7 @@ export default function Guided() {
     delayExecute(sphereOneArt.focus.bind(sphereOneArt, 10000), tweeningDelay);
     setTimeout(() => {
       moveToSphereTwo();
-    }, 5000);
+    }, 10000);
   }
 
   function moveToSphereTwo() {
@@ -88,18 +88,18 @@ export default function Guided() {
     viewer.setPanorama(panorama2)
     setTimeout(() => {
       introSphereTwo();
-    }, 5000);
+    }, 10000);
   }
 
   function introSphereTwo() {
-    // delayExecute(sphereTwoArt2.focus.bind(sphereTwoArt2, 20000), tweeningDelay);
-    // setTimeout(() => {
-    //   sphereTwoArtTwo();
-    // }, 15000);
+    delayExecute(sphereTwoArt2.focus.bind(sphereTwoArt2, 10000), tweeningDelay);
+    setTimeout(() => {
+      sphereTwoArtTwo();
+    }, 15000);
   }
 
   function sphereTwoArtTwo() {
-    // delayExecute(sphereTwoArt1.focus.bind(sphereTwoArt1, 20000), tweeningDelay);
+    delayExecute(sphereTwoArt1.focus.bind(sphereTwoArt1, 10000), tweeningDelay);
   }
 
   // Infospots
