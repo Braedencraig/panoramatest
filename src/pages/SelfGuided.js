@@ -14,6 +14,7 @@ import seven from "../assets/spheres/seven.jpg";
 // Artworks
 import imagePlaceholder from "../assets/art/artworkPlaceholder.jpg";
 import gifPlaceholder from "../assets/gifs/gifPlaceholder.gif";
+import imageTest from "../assets/next.png"
 // Audio
 import audio from "../assets/audio/audio.mp3"
 
@@ -30,7 +31,8 @@ export default function SelfGuided() {
       panorama4, 
       panorama5, 
       panorama6, 
-      panorama7, 
+      panorama7,
+      panorama8, 
       viewer;
 
   // Create spheres
@@ -41,17 +43,18 @@ export default function SelfGuided() {
   panorama5 = new PANOLENS.ImagePanorama(five);
   panorama6 = new PANOLENS.ImagePanorama(six);
   panorama7 = new PANOLENS.ImagePanorama(seven);
+  panorama8 = new PANOLENS.ImagePanorama(one);
 
   // Link spheres
-  panorama1.link(panorama2, new THREE.Vector3(-207.5, 504.88, -6000.0), 600, `${process.env.PUBLIC_URL + 'next.png'}`);
+  panorama1.link(panorama2, new THREE.Vector3(-207.5, 504.88, -6000.0), 600, `${imageTest}`);
   // Edgecase for bug in panolens for second image useage, has to do with caching on their end.
-  panorama2.link(panorama3, new THREE.Vector3(-6907.5, 304.88, 1000.0), 600, `${process.env.PUBLIC_URL + 'next.png'}`);
-  panorama2.link(panorama3, new THREE.Vector3(-6907.5, 304.88, 1000.0), 600, `${process.env.PUBLIC_URL + 'next.png'}`);
-  panorama3.link(panorama4, new THREE.Vector3(-207.5, 504.88, -6000.0), 600, `${process.env.PUBLIC_URL + 'next.png'}`);
-  panorama4.link(panorama5, new THREE.Vector3(-207.5, 504.88, -6000.0), 600, `${process.env.PUBLIC_URL + 'next.png'}`);
-  panorama5.link(panorama6, new THREE.Vector3(-207.5, 504.88, -6000.0), 600, `${process.env.PUBLIC_URL + 'next.png'}`);
-  panorama6.link(panorama7, new THREE.Vector3(-207.5, 504.88, -6000.0), 600, `${process.env.PUBLIC_URL + 'next.png'}`);
-  panorama7.link(panorama1, new THREE.Vector3(-207.5, 504.88, -6000.0), 600, `${process.env.PUBLIC_URL + 'next.png'}`);
+  panorama2.link(panorama3, new THREE.Vector3(-6907.5, 304.88, 1000.0), 600, `${imageTest}`);
+  panorama2.link(panorama3, new THREE.Vector3(-6907.5, 304.88, 1000.0), 600, `${imageTest}`);
+  panorama3.link(panorama4, new THREE.Vector3(-207.5, 504.88, -6000.0), 600, `${imageTest}`);
+  panorama4.link(panorama5, new THREE.Vector3(-207.5, 504.88, -6000.0), 600, `${imageTest}`);
+  panorama5.link(panorama6, new THREE.Vector3(-207.5, 504.88, -6000.0), 600, `${imageTest}`);
+  panorama6.link(panorama7, new THREE.Vector3(-207.5, 504.88, -6000.0), 600, `${imageTest}`);
+  panorama7.link(panorama8, new THREE.Vector3(-207.5, 504.88, -6000.0), 600, `${imageTest}`);
 
   // Create viewer and add panoramas
   viewer = new PANOLENS.Viewer({ autoHideInfospot: false });
@@ -62,6 +65,7 @@ export default function SelfGuided() {
   viewer.add(panorama5);
   viewer.add(panorama6);
   viewer.add(panorama7);
+  viewer.add(panorama8);
 
   const container = document.getElementsByClassName('panolens-container')[0]
 
@@ -113,6 +117,14 @@ export default function SelfGuided() {
       container.classList.remove('fade-in')
     }, 6000)
   });
+
+  panorama8.addEventListener( 'enter-fade-start', function(){
+    const end = Array.from(document.getElementsByClassName('end'))
+    if(end) {
+      end[0].style.display = 'flex'
+      end[0].classList.add('show')
+    }
+  });  
 
   // Gif loader
   const loader = new GifLoader();
@@ -277,39 +289,6 @@ export default function SelfGuided() {
    planeTen.rotation.y += 0.4;
    panorama7.add(planeTen);
 
-
-
-
-  // var light = new THREE.DirectionalLight(0xffffff);
-  // light.position.set(1, 1, 1).normalize();
-  // panorama1.add(light);
-
-  // var loaderFont = new THREE.FontLoader();
-  // loaderFont.load(
-  //   "https://threejs.org/examples/fonts/helvetiker_regular.typeface.json",
-  //   function (font) {
-  //     var textGeometry = new THREE.TextGeometry("text", {
-  //       font: font,
-  //       size: 10,
-  //       height: 10,
-  //       curveSegments: 4,
-  //       bevelThickness: 1,
-  //       bevelSize: 1,
-  //       bevelEnabled: true,
-  //     });
-
-  //     var textMaterial = new THREE.MeshPhongMaterial({
-  //       color: 0xffffff,
-  //       flatShading: true,
-  //     });
-
-  //     var meshFont = new THREE.Mesh(textGeometry, textMaterial);
-  //     meshFont.position.set(-120, 5, -20);
-  //     meshFont.rotation.y += 1.5;
-  //     panorama1.add(meshFont);
-  //   }
-  // );
-
   return (
     <>
       <ReactHowler
@@ -317,6 +296,10 @@ export default function SelfGuided() {
         playing={true}
         loop={true}
       />
+      <div className="end">
+        <h2>Thank you for coming!</h2>
+        <p>Please visit the <a href="/about">about page</a> to learn more about the artist and the exibition.</p>
+      </div>
     </>
   );
 }

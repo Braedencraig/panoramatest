@@ -275,13 +275,19 @@ input {
 #dialog {
   position: absolute;
   top: 50%;
-  width: 100%;
+  width: 66%;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 20px;
   box-sizing: border-box;
   pointer-events: none;
+
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
 }
 
 #progress {
@@ -456,4 +462,28 @@ p.location {
 .image-details {
   text-align: center;
   margin: 2% 0;
+}
+
+.end {
+  display: none;
+}
+
+.end a {
+  color: white;
+  text-decoration: underline;
+}
+
+.show {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background: #444444;
+  font-size: 40px;
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  align-items: center;
 }
