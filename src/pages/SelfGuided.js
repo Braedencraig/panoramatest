@@ -46,10 +46,11 @@ export default function SelfGuided() {
   // panorama8 = new PANOLENS.ImagePanorama(one);
 
   // Link spheres
-  panorama1.link(panorama2, new THREE.Vector3(-207.5, 504.88, -6000.0), 600, `${imageTest}`);
+  panorama1.link(panorama2, new THREE.Vector3(-207.5, 504.88, -6000.0));
   // Edgecase for bug in panolens for second image useage, has to do with caching on their end.
-  panorama2.link(panorama3, new THREE.Vector3(-6907.5, 304.88, 1000.0), 600, `${imageTest}`);
-  panorama2.link(panorama3, new THREE.Vector3(-6907.5, 304.88, 1000.0), 600, `${imageTest}`);
+  // panorama2.link(panorama3, new THREE.Vector3(-6907.5, 304.88, 1000.0), 600, `${imageTest}`);
+  panorama2.link(panorama3, new THREE.Vector3(-207.5, 504.88, -6000.0));
+
   // panorama3.link(panorama4, new THREE.Vector3(-207.5, 504.88, -6000.0), 600, `${imageTest}`);
   // panorama4.link(panorama5, new THREE.Vector3(-207.5, 504.88, -6000.0), 600, `${imageTest}`);
   // panorama5.link(panorama6, new THREE.Vector3(-207.5, 504.88, -6000.0), 600, `${imageTest}`);
