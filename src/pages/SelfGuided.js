@@ -32,7 +32,6 @@ export default function SelfGuided() {
       panorama5, 
       panorama6, 
       panorama7,
-      panorama8, 
       viewer;
 
   // Create spheres
@@ -43,7 +42,6 @@ export default function SelfGuided() {
   panorama5 = new PANOLENS.ImagePanorama(five);
   panorama6 = new PANOLENS.ImagePanorama(six);
   panorama7 = new PANOLENS.ImagePanorama(seven);
-  panorama8 = new PANOLENS.ImagePanorama(one);
 
   // Link spheres
   panorama1.link(panorama2, new THREE.Vector3(-207.5, 504.88, -6000.0), 600, `${imageTest}`);
@@ -54,18 +52,18 @@ export default function SelfGuided() {
   panorama4.link(panorama5, new THREE.Vector3(-207.5, 504.88, -6000.0), 600, `${imageTest}`);
   panorama5.link(panorama6, new THREE.Vector3(-207.5, 504.88, -6000.0), 600, `${imageTest}`);
   panorama6.link(panorama7, new THREE.Vector3(-207.5, 504.88, -6000.0), 600, `${imageTest}`);
-  panorama7.link(panorama8, new THREE.Vector3(-207.5, 504.88, -6000.0), 600, `${imageTest}`);
+  panorama7.link(panorama1, new THREE.Vector3(-207.5, 504.88, -6000.0), 600, `${imageTest}`);
 
   // Create viewer and add panoramas
   viewer = new PANOLENS.Viewer({ autoHideInfospot: false });
   viewer.add(panorama1);
   viewer.add(panorama2);
   viewer.add(panorama3);
-  viewer.add(panorama4);
-  viewer.add(panorama5);
-  viewer.add(panorama6);
-  viewer.add(panorama7);
-  viewer.add(panorama8);
+  // viewer.add(panorama4);
+  // viewer.add(panorama5);
+  // viewer.add(panorama6);
+  // viewer.add(panorama7);
+  // viewer.add(panorama8);
   // TO DO USE PANOLENS GALLERY EXAMPLE FOR DISPOSING OF 
 
   const container = document.getElementsByClassName('panolens-container')[0]
@@ -79,6 +77,8 @@ export default function SelfGuided() {
 
   panorama2.addEventListener( 'enter-fade-start', function(){
     container.classList.add('fade-in')
+    panorama1.dispose()
+    viewer.add(panorama3);
     setTimeout(() => {
       container.classList.remove('fade-in')
     }, 6000)
