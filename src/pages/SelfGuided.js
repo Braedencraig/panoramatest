@@ -175,15 +175,15 @@ export default function SelfGuided() {
   // planeTwo.rotation.y -= 0.3;
   // panorama2.add(planeTwo);
 
-  // const geometryThree = new THREE.PlaneGeometry(300, 300, 300);
-  // const loaderThree = new THREE.TextureLoader();
-  // const materialThree = new THREE.MeshBasicMaterial({
-  //   map: loaderThree.load(imagePlaceholder),
-  //   side: THREE.DoubleSide,
-  // });
-  // const planeThree = new THREE.Mesh(geometryThree, materialThree);
-  // planeThree.position.set(10, 210, -440);
-  // panorama2.add(planeThree);
+  const geometryThree = new THREE.PlaneGeometry(300, 300, 300);
+  const loaderThree = new THREE.TextureLoader();
+  const materialThree = new THREE.MeshBasicMaterial({
+    map: loaderThree.load(imagePlaceholder),
+    side: THREE.DoubleSide,
+  });
+  const planeThree = new THREE.Mesh(geometryThree, materialThree);
+  planeThree.position.set(10, 210, -440);
+  panorama2.add(planeThree);
 
   // // Sphere three artwork - contains four
   // const geometryFour = new THREE.PlaneGeometry(300, 300, 300);
