@@ -4,13 +4,13 @@ import * as THREE from "three";
 import GifLoader from "three-gif-loader";
 import ReactHowler from "react-howler";
 // Spheres
-import one from "../assets/spheres/sunset.jpg";
-import two from "../assets/spheres/tent.jpg";
-import three from "../assets/spheres/tunnel.jpg";
-// import four from "../assets/spheres/four.jpg";
-// import five from "../assets/spheres/five.jpg";
-// import six from "../assets/spheres/six.jpg";
-// import seven from "../assets/spheres/seven.jpg";
+import one from "../assets/spheres/one.jpg";
+import two from "../assets/spheres/two.jpg";
+import three from "../assets/spheres/three.jpg";
+import four from "../assets/spheres/four.jpg";
+import five from "../assets/spheres/five.jpg";
+import six from "../assets/spheres/six.jpg";
+import seven from "../assets/spheres/seven.jpg";
 // Artworks
 import imagePlaceholder from "../assets/art/artworkPlaceholder.jpg";
 import gifPlaceholder from "../assets/gifs/gifPlaceholder.gif";
@@ -39,16 +39,11 @@ export default function SelfGuided() {
   panorama1 = new PANOLENS.ImagePanorama(one);
   panorama2 = new PANOLENS.ImagePanorama(two);
   panorama3 = new PANOLENS.ImagePanorama(three);
-  panorama4 = new PANOLENS.ImagePanorama(one);
-  panorama5 = new PANOLENS.ImagePanorama(two);
-  panorama6 = new PANOLENS.ImagePanorama(three);
-  panorama7 = new PANOLENS.ImagePanorama(one);
-  panorama8 = new PANOLENS.ImagePanorama(two);
-  // panorama4 = new PANOLENS.ImagePanorama(four);
-  // panorama5 = new PANOLENS.ImagePanorama(five);
-  // panorama6 = new PANOLENS.ImagePanorama(six);
-  // panorama7 = new PANOLENS.ImagePanorama(seven);
-  // panorama8 = new PANOLENS.ImagePanorama(one);
+  panorama4 = new PANOLENS.ImagePanorama(four);
+  panorama5 = new PANOLENS.ImagePanorama(five);
+  panorama6 = new PANOLENS.ImagePanorama(six);
+  panorama7 = new PANOLENS.ImagePanorama(seven);
+  panorama8 = new PANOLENS.ImagePanorama(one);
 
   // Link spheres
   panorama1.link(panorama2, new THREE.Vector3(-207.5, 504.88, -6000.0));
