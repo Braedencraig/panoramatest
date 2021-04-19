@@ -61,7 +61,7 @@ export default function SelfGuided() {
   panorama5.link(panorama6, new THREE.Vector3(-207.5, 504.88, -6000.0));
   panorama6.link(panorama7, new THREE.Vector3(-207.5, 504.88, -6000.0));
   panorama7.link(panorama8, new THREE.Vector3(-207.5, 504.88, -6000.0));
-  panorama8.link(panorama1, new THREE.Vector3(-207.5, 504.88, -6000.0));
+  // panorama8.link(panorama1, new THREE.Vector3(-207.5, 504.88, -6000.0));
 
   // Create viewer and add panoramas
   viewer = new PANOLENS.Viewer({ autoHideInfospot: false });
