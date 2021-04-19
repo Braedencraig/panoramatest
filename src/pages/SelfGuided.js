@@ -14,7 +14,7 @@ import three from "../assets/spheres/tunnel.jpg";
 // Artworks
 // import imagePlaceholder from "../assets/art/artworkPlaceholder.jpg";
 // import gifPlaceholder from "../assets/gifs/gifPlaceholder.gif";
-import imageTest from "../assets/next.png"
+// import imageTest from "../assets/next.png"
 // Audio
 import audio from "../assets/audio/audio.mp3"
 
