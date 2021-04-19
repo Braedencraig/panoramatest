@@ -128,8 +128,11 @@ export default function SelfGuided() {
   });
 
   panorama8.addEventListener( 'enter-fade-start', function(){
+    const end = Array.from(document.getElementsByClassName('end'))
+    setTimeout(() => {
       end[0].style.display = 'flex'
       end[0].classList.add('show')
+    }, 3000)
   });  
 
   // Gif loader
