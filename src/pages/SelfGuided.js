@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import * as PANOLENS from "panolens";
 import * as THREE from "three";
-// import GifLoader from "three-gif-loader";
+import GifLoader from "three-gif-loader";
 import ReactHowler from "react-howler";
 // Spheres
 import one from "../assets/spheres/sunset.jpg";
@@ -13,7 +13,7 @@ import three from "../assets/spheres/tunnel.jpg";
 // import seven from "../assets/spheres/seven.jpg";
 // Artworks
 import imagePlaceholder from "../assets/art/artworkPlaceholder.jpg";
-// import gifPlaceholder from "../assets/gifs/gifPlaceholder.gif";
+import gifPlaceholder from "../assets/gifs/gifPlaceholder.gif";
 // import imageTest from "../assets/next.png"
 // Audio
 import audio from "../assets/audio/audio.mp3"
@@ -135,7 +135,7 @@ export default function SelfGuided() {
   });  
 
   // Gif loader
-  // const loader = new GifLoader();
+  const loader = new GifLoader();
 
   // // Sphere one artwork - contains one
   const geometryOne = new THREE.PlaneGeometry(300, 300, 300);
@@ -149,31 +149,31 @@ export default function SelfGuided() {
   panorama1.add(planeOne);
 
   // // Sphere two artwork - contains two & three
-  // const textureTwo = loader.load(
-  //   gifPlaceholder,
-  //   // onLoad callback
-  //   function (reader) {
-  //     console.log(reader.numFrames());
-  //   },
-  //   // onProgress callback
-  //   function (xhr) {
-  //     console.log(`${(xhr.loaded / xhr.total) * 100}% loaded`);
-  //   },
-  //   // onError callback
-  //   function () {
-  //     console.error("An error happened.");
-  //   }
-  // );
-  // const materialTwo = new THREE.MeshBasicMaterial({
-  //   map: textureTwo,
-  //   // transparent: true,
-  //   side: THREE.DoubleSide,
-  // });
-  // const geometryTwo = new THREE.PlaneGeometry(300, 300, 300);
-  // const planeTwo = new THREE.Mesh(geometryTwo, materialTwo);
-  // planeTwo.position.set(-160, 220, 420);
-  // planeTwo.rotation.y -= 0.3;
-  // panorama2.add(planeTwo);
+  const textureTwo = loader.load(
+    gifPlaceholder,
+    // onLoad callback
+    function (reader) {
+      console.log(reader.numFrames());
+    },
+    // onProgress callback
+    function (xhr) {
+      console.log(`${(xhr.loaded / xhr.total) * 100}% loaded`);
+    },
+    // onError callback
+    function () {
+      console.error("An error happened.");
+    }
+  );
+  const materialTwo = new THREE.MeshBasicMaterial({
+    map: textureTwo,
+    // transparent: true,
+    side: THREE.DoubleSide,
+  });
+  const geometryTwo = new THREE.PlaneGeometry(300, 300, 300);
+  const planeTwo = new THREE.Mesh(geometryTwo, materialTwo);
+  planeTwo.position.set(-160, 220, 420);
+  planeTwo.rotation.y -= 0.3;
+  panorama2.add(planeTwo);
 
   const geometryThree = new THREE.PlaneGeometry(300, 300, 300);
   const loaderThree = new THREE.TextureLoader();
@@ -186,28 +186,28 @@ export default function SelfGuided() {
   panorama2.add(planeThree);
 
   // // Sphere three artwork - contains four
-  // const geometryFour = new THREE.PlaneGeometry(300, 300, 300);
-  // const loaderFour = new THREE.TextureLoader();
-  // const materialFour = new THREE.MeshBasicMaterial({
-  //   map: loaderFour.load(imagePlaceholder),
-  //   side: THREE.DoubleSide,
-  // });
-  // const planeFour = new THREE.Mesh(geometryFour, materialFour);
-  // planeFour.position.set(-450, 130, 90);
-  // planeFour.rotation.y += 1.8;
-  // panorama3.add(planeFour);
+  const geometryFour = new THREE.PlaneGeometry(300, 300, 300);
+  const loaderFour = new THREE.TextureLoader();
+  const materialFour = new THREE.MeshBasicMaterial({
+    map: loaderFour.load(imagePlaceholder),
+    side: THREE.DoubleSide,
+  });
+  const planeFour = new THREE.Mesh(geometryFour, materialFour);
+  planeFour.position.set(-450, 130, 90);
+  planeFour.rotation.y += 1.8;
+  panorama3.add(planeFour);
 
   // Sphere four artwork - contains five & six
-  // const geometryFive = new THREE.PlaneGeometry(200, 200, 200);
-  // const loaderFive = new THREE.TextureLoader();
-  // const materialFive = new THREE.MeshBasicMaterial({
-  //   map: loaderFive.load(imagePlaceholder),
-  //   side: THREE.DoubleSide,
-  // });
-  // const planeFive = new THREE.Mesh(geometryFive, materialFive);
-  // planeFive.position.set(-350, -10, 10);
-  // planeFive.rotation.y += 1.7;
-  // panorama4.add(planeFive);
+  const geometryFive = new THREE.PlaneGeometry(200, 200, 200);
+  const loaderFive = new THREE.TextureLoader();
+  const materialFive = new THREE.MeshBasicMaterial({
+    map: loaderFive.load(imagePlaceholder),
+    side: THREE.DoubleSide,
+  });
+  const planeFive = new THREE.Mesh(geometryFive, materialFive);
+  planeFive.position.set(-350, -10, 10);
+  planeFive.rotation.y += 1.7;
+  panorama4.add(planeFive);
 
   // const textureSix = loader.load(
   //   gifPlaceholder,
