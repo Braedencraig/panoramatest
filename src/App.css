@@ -475,6 +475,7 @@ p.location {
 
 .show {
   position: absolute;
+  display: flex !important;
   top: 0;
   bottom: 0;
   left: 0;
