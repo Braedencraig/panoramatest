@@ -5,12 +5,12 @@ export default function Home() {
   const [show, setShow] = useState(true);
 
   useEffect(() => {
-    const body = document.getElementsByTagName('body')[0]
-    body.style.overflow = 'auto'
-    const panolens = Array.from(document.getElementsByClassName('panolens-container'))
-    panolens.map(pan => {
-      return pan.parentNode.removeChild(pan);
-    })
+    // const body = document.getElementsByTagName('body')[0]
+    // body.style.overflow = 'auto'
+    // const panolens = Array.from(document.getElementsByClassName('panolens-container'))
+    // panolens.map(pan => {
+    //   return pan.parentNode.removeChild(pan);
+    // })
   })
 
   return (
