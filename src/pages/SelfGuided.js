@@ -76,7 +76,7 @@ export default function SelfGuided() {
   // TO DO USE PANOLENS GALLERY EXAMPLE FOR DISPOSING OF 
 
   const container = document.getElementsByClassName('panolens-container')[0]
-  const end = Array.from(document.getElementsByClassName('end'))
+  // const end = Array.from(document.getElementsByClassName('end'))
 
   panorama1.addEventListener( 'enter-fade-start', function(){
     container.classList.add('fade-in')
