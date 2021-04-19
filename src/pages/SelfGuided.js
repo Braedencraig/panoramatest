@@ -21,8 +21,8 @@ import audio from "../assets/audio/audio.mp3"
 export default function SelfGuided() {  
 
   useEffect(() => {
-    const body = document.getElementsByTagName('body')[0]
-    body.style.overflow = 'hidden'
+    // const body = document.getElementsByTagName('body')[0]
+    // body.style.overflow = 'hidden'
   })
 
   let panorama1, 
@@ -48,7 +48,7 @@ export default function SelfGuided() {
   // Link spheres
   panorama1.link(panorama2, new THREE.Vector3(-207.5, 504.88, -6000.0), 600, `${imageTest}`);
   // Edgecase for bug in panolens for second image useage, has to do with caching on their end.
-  panorama2.link(panorama3, new THREE.Vector3(-6907.5, 304.88, 1000.0), 600, `${imageTest}`);
+  // panorama2.link(panorama3, new THREE.Vector3(-6907.5, 304.88, 1000.0), 600, `${imageTest}`);
   panorama2.link(panorama3, new THREE.Vector3(-6907.5, 304.88, 1000.0), 600, `${imageTest}`);
   panorama3.link(panorama4, new THREE.Vector3(-207.5, 504.88, -6000.0), 600, `${imageTest}`);
   panorama4.link(panorama5, new THREE.Vector3(-207.5, 504.88, -6000.0), 600, `${imageTest}`);
