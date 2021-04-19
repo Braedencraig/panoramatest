@@ -5,7 +5,7 @@ import GifLoader from "three-gif-loader";
 import ReactHowler from "react-howler";
 // Spheres
 import one from "../assets/spheres/one.jpg";
-import two from "../assets/spheres/two.jpg";
+// import two from "../assets/spheres/two.jpg";
 import three from "../assets/spheres/three.jpg";
 import four from "../assets/spheres/four.jpg";
 import five from "../assets/spheres/five.jpg";
@@ -37,7 +37,8 @@ export default function SelfGuided() {
 
   // Create spheres
   panorama1 = new PANOLENS.ImagePanorama(one);
-  panorama2 = new PANOLENS.ImagePanorama(two);
+  // panorama2 = new PANOLENS.ImagePanorama(two);
+  panorama2 = new PANOLENS.GoogleStreetviewPanorama( 'JmSoPsBPhqWvaBmOqfFzgA' )
   panorama3 = new PANOLENS.ImagePanorama(three);
   panorama4 = new PANOLENS.ImagePanorama(four);
   panorama5 = new PANOLENS.ImagePanorama(five);
