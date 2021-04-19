@@ -76,6 +76,7 @@ export default function SelfGuided() {
   // TO DO USE PANOLENS GALLERY EXAMPLE FOR DISPOSING OF 
 
   const container = document.getElementsByClassName('panolens-container')[0]
+  const end = Array.from(document.getElementsByClassName('end'))
 
   panorama1.addEventListener( 'enter-fade-start', function(){
     container.classList.add('fade-in')
@@ -127,11 +128,8 @@ export default function SelfGuided() {
   });
 
   panorama8.addEventListener( 'enter-fade-start', function(){
-    const end = Array.from(document.getElementsByClassName('end'))
-    if(end) {
       end[0].style.display = 'flex'
       end[0].classList.add('show')
-    }
   });  
 
   // Gif loader
