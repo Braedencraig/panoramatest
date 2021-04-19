@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import * as PANOLENS from "panolens";
 import * as THREE from "three";
-import GifLoader from "three-gif-loader";
+// import GifLoader from "three-gif-loader";
 import ReactHowler from "react-howler";
 // Spheres
 import one from "../assets/spheres/sunset.jpg";
@@ -12,8 +12,8 @@ import three from "../assets/spheres/tunnel.jpg";
 // import six from "../assets/spheres/six.jpg";
 // import seven from "../assets/spheres/seven.jpg";
 // Artworks
-import imagePlaceholder from "../assets/art/artworkPlaceholder.jpg";
-import gifPlaceholder from "../assets/gifs/gifPlaceholder.gif";
+// import imagePlaceholder from "../assets/art/artworkPlaceholder.jpg";
+// import gifPlaceholder from "../assets/gifs/gifPlaceholder.gif";
 import imageTest from "../assets/next.png"
 // Audio
 import audio from "../assets/audio/audio.mp3"
