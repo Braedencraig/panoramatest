@@ -119,13 +119,13 @@ export default function SelfGuided() {
     }, 6000)
   });
 
-  panorama8.addEventListener( 'enter-fade-start', function(){
-    const end = Array.from(document.getElementsByClassName('end'))
-    if(end) {
-      end[0].style.display = 'flex'
-      end[0].classList.add('show')
-    }
-  });  
+  // panorama8.addEventListener( 'enter-fade-start', function(){
+  //   const end = Array.from(document.getElementsByClassName('end'))
+  //   if(end) {
+  //     end[0].style.display = 'flex'
+  //     end[0].classList.add('show')
+  //   }
+  // });  
 
   // Gif loader
   const loader = new GifLoader();
