@@ -14,7 +14,7 @@ import three from "../assets/spheres/tunnel.jpg";
 // Artworks
 import imagePlaceholder from "../assets/art/artworkPlaceholder.jpg";
 import gifPlaceholder from "../assets/gifs/gifPlaceholder.gif";
-// import imageTest from "../assets/next.png"
+import imageTest from "../assets/next.png"
 // Audio
 import audio from "../assets/audio/audio.mp3"
 
@@ -28,17 +28,22 @@ export default function SelfGuided() {
   let panorama1, 
       panorama2, 
       panorama3, 
-      // panorama4, 
-      // panorama5, 
-      // panorama6, 
-      // panorama7,
-      // panorama8, 
+      panorama4, 
+      panorama5, 
+      panorama6, 
+      panorama7,
+      panorama8, 
       viewer;
 
   // Create spheres
   panorama1 = new PANOLENS.ImagePanorama(one);
   panorama2 = new PANOLENS.ImagePanorama(two);
   panorama3 = new PANOLENS.ImagePanorama(three);
+  panorama4 = new PANOLENS.ImagePanorama(one);
+  panorama5 = new PANOLENS.ImagePanorama(two);
+  panorama6 = new PANOLENS.ImagePanorama(three);
+  panorama7 = new PANOLENS.ImagePanorama(one);
+  panorama8 = new PANOLENS.ImagePanorama(two);
   // panorama4 = new PANOLENS.ImagePanorama(four);
   // panorama5 = new PANOLENS.ImagePanorama(five);
   // panorama6 = new PANOLENS.ImagePanorama(six);
@@ -46,27 +51,26 @@ export default function SelfGuided() {
   // panorama8 = new PANOLENS.ImagePanorama(one);
 
   // Link spheres
-  panorama1.link(panorama2, new THREE.Vector3(-207.5, 504.88, -6000.0));
+  panorama1.link(panorama2, new THREE.Vector3(-207.5, 504.88, -6000.0), 600, `${imageTest}`);
   // Edgecase for bug in panolens for second image useage, has to do with caching on their end.
+  panorama2.link(panorama3, new THREE.Vector3(-6907.5, 304.88, 1000.0), 600, `${imageTest}`);
   // panorama2.link(panorama3, new THREE.Vector3(-6907.5, 304.88, 1000.0), 600, `${imageTest}`);
-  panorama2.link(panorama3, new THREE.Vector3(-207.5, 504.88, -6000.0));
-
-  // panorama3.link(panorama4, new THREE.Vector3(-207.5, 504.88, -6000.0), 600, `${imageTest}`);
-  // panorama4.link(panorama5, new THREE.Vector3(-207.5, 504.88, -6000.0), 600, `${imageTest}`);
-  // panorama5.link(panorama6, new THREE.Vector3(-207.5, 504.88, -6000.0), 600, `${imageTest}`);
-  // panorama6.link(panorama7, new THREE.Vector3(-207.5, 504.88, -6000.0), 600, `${imageTest}`);
-  // panorama7.link(panorama8, new THREE.Vector3(-207.5, 504.88, -6000.0), 600, `${imageTest}`);
+  panorama3.link(panorama4, new THREE.Vector3(-207.5, 504.88, -6000.0), 600, `${imageTest}`);
+  panorama4.link(panorama5, new THREE.Vector3(-207.5, 504.88, -6000.0), 600, `${imageTest}`);
+  panorama5.link(panorama6, new THREE.Vector3(-207.5, 504.88, -6000.0), 600, `${imageTest}`);
+  panorama6.link(panorama7, new THREE.Vector3(-207.5, 504.88, -6000.0), 600, `${imageTest}`);
+  panorama7.link(panorama8, new THREE.Vector3(-207.5, 504.88, -6000.0), 600, `${imageTest}`);
 
   // Create viewer and add panoramas
   viewer = new PANOLENS.Viewer({ autoHideInfospot: false });
   viewer.add(panorama1);
   viewer.add(panorama2);
   viewer.add(panorama3);
-  // viewer.add(panorama4);
-  // viewer.add(panorama5);
-  // viewer.add(panorama6);
-  // viewer.add(panorama7);
-  // viewer.add(panorama8);
+  viewer.add(panorama4);
+  viewer.add(panorama5);
+  viewer.add(panorama6);
+  viewer.add(panorama7);
+  viewer.add(panorama8);
   // TO DO USE PANOLENS GALLERY EXAMPLE FOR DISPOSING OF 
 
   const container = document.getElementsByClassName('panolens-container')[0]
@@ -92,104 +96,104 @@ export default function SelfGuided() {
     }, 6000)
   });
 
-  // panorama4.addEventListener( 'enter-fade-start', function(){
-  //   container.classList.add('fade-in')
-  //   setTimeout(() => {
-  //     container.classList.remove('fade-in')
-  //   }, 6000)
-  // });
+  panorama4.addEventListener( 'enter-fade-start', function(){
+    container.classList.add('fade-in')
+    setTimeout(() => {
+      container.classList.remove('fade-in')
+    }, 6000)
+  });
 
-  // panorama5.addEventListener( 'enter-fade-start', function(){
-  //   container.classList.add('fade-in')
-  //   setTimeout(() => {
-  //     container.classList.remove('fade-in')
-  //   }, 6000)
-  // });
+  panorama5.addEventListener( 'enter-fade-start', function(){
+    container.classList.add('fade-in')
+    setTimeout(() => {
+      container.classList.remove('fade-in')
+    }, 6000)
+  });
 
-  // panorama6.addEventListener( 'enter-fade-start', function(){
-  //   container.classList.add('fade-in')
-  //   setTimeout(() => {
-  //     container.classList.remove('fade-in')
-  //   }, 6000)
-  // });
+  panorama6.addEventListener( 'enter-fade-start', function(){
+    container.classList.add('fade-in')
+    setTimeout(() => {
+      container.classList.remove('fade-in')
+    }, 6000)
+  });
 
-  // panorama7.addEventListener( 'enter-fade-start', function(){
-  //   container.classList.add('fade-in')
-  //   setTimeout(() => {
-  //     container.classList.remove('fade-in')
-  //   }, 6000)
-  // });
+  panorama7.addEventListener( 'enter-fade-start', function(){
+    container.classList.add('fade-in')
+    setTimeout(() => {
+      container.classList.remove('fade-in')
+    }, 6000)
+  });
 
-  // panorama8.addEventListener( 'enter-fade-start', function(){
-  //   const end = Array.from(document.getElementsByClassName('end'))
-  //   if(end) {
-  //     end[0].style.display = 'flex'
-  //     end[0].classList.add('show')
-  //   }
-  // });  
+  panorama8.addEventListener( 'enter-fade-start', function(){
+    const end = Array.from(document.getElementsByClassName('end'))
+    if(end) {
+      end[0].style.display = 'flex'
+      end[0].classList.add('show')
+    }
+  });  
 
   // Gif loader
-  const loader = new GifLoader();
+  // const loader = new GifLoader();
 
-  // Sphere one artwork - contains one
-  const geometryOne = new THREE.PlaneGeometry(300, 300, 300);
-  const loaderOne = new THREE.TextureLoader();
-  const materialOne = new THREE.MeshBasicMaterial({
-    map: loaderOne.load(imagePlaceholder),
-    side: THREE.DoubleSide,
-  });
-  const planeOne = new THREE.Mesh(geometryOne, materialOne);
-  planeOne.position.set(-30, 100, 340);
-  panorama1.add(planeOne);
+  // // Sphere one artwork - contains one
+  // const geometryOne = new THREE.PlaneGeometry(300, 300, 300);
+  // const loaderOne = new THREE.TextureLoader();
+  // const materialOne = new THREE.MeshBasicMaterial({
+  //   map: loaderOne.load(imagePlaceholder),
+  //   side: THREE.DoubleSide,
+  // });
+  // const planeOne = new THREE.Mesh(geometryOne, materialOne);
+  // planeOne.position.set(-30, 100, 340);
+  // panorama1.add(planeOne);
 
-  // Sphere two artwork - contains two & three
-  const textureTwo = loader.load(
-    gifPlaceholder,
-    // onLoad callback
-    function (reader) {
-      console.log(reader.numFrames());
-    },
-    // onProgress callback
-    function (xhr) {
-      console.log(`${(xhr.loaded / xhr.total) * 100}% loaded`);
-    },
-    // onError callback
-    function () {
-      console.error("An error happened.");
-    }
-  );
-  const materialTwo = new THREE.MeshBasicMaterial({
-    map: textureTwo,
-    // transparent: true,
-    side: THREE.DoubleSide,
-  });
-  const geometryTwo = new THREE.PlaneGeometry(300, 300, 300);
-  const planeTwo = new THREE.Mesh(geometryTwo, materialTwo);
-  planeTwo.position.set(-160, 220, 420);
-  planeTwo.rotation.y -= 0.3;
-  panorama2.add(planeTwo);
+  // // Sphere two artwork - contains two & three
+  // const textureTwo = loader.load(
+  //   gifPlaceholder,
+  //   // onLoad callback
+  //   function (reader) {
+  //     console.log(reader.numFrames());
+  //   },
+  //   // onProgress callback
+  //   function (xhr) {
+  //     console.log(`${(xhr.loaded / xhr.total) * 100}% loaded`);
+  //   },
+  //   // onError callback
+  //   function () {
+  //     console.error("An error happened.");
+  //   }
+  // );
+  // const materialTwo = new THREE.MeshBasicMaterial({
+  //   map: textureTwo,
+  //   // transparent: true,
+  //   side: THREE.DoubleSide,
+  // });
+  // const geometryTwo = new THREE.PlaneGeometry(300, 300, 300);
+  // const planeTwo = new THREE.Mesh(geometryTwo, materialTwo);
+  // planeTwo.position.set(-160, 220, 420);
+  // planeTwo.rotation.y -= 0.3;
+  // panorama2.add(planeTwo);
 
-  const geometryThree = new THREE.PlaneGeometry(300, 300, 300);
-  const loaderThree = new THREE.TextureLoader();
-  const materialThree = new THREE.MeshBasicMaterial({
-    map: loaderThree.load(imagePlaceholder),
-    side: THREE.DoubleSide,
-  });
-  const planeThree = new THREE.Mesh(geometryThree, materialThree);
-  planeThree.position.set(10, 210, -440);
-  panorama2.add(planeThree);
+  // const geometryThree = new THREE.PlaneGeometry(300, 300, 300);
+  // const loaderThree = new THREE.TextureLoader();
+  // const materialThree = new THREE.MeshBasicMaterial({
+  //   map: loaderThree.load(imagePlaceholder),
+  //   side: THREE.DoubleSide,
+  // });
+  // const planeThree = new THREE.Mesh(geometryThree, materialThree);
+  // planeThree.position.set(10, 210, -440);
+  // panorama2.add(planeThree);
 
-  // Sphere three artwork - contains four
-  const geometryFour = new THREE.PlaneGeometry(300, 300, 300);
-  const loaderFour = new THREE.TextureLoader();
-  const materialFour = new THREE.MeshBasicMaterial({
-    map: loaderFour.load(imagePlaceholder),
-    side: THREE.DoubleSide,
-  });
-  const planeFour = new THREE.Mesh(geometryFour, materialFour);
-  planeFour.position.set(-450, 130, 90);
-  planeFour.rotation.y += 1.8;
-  panorama3.add(planeFour);
+  // // Sphere three artwork - contains four
+  // const geometryFour = new THREE.PlaneGeometry(300, 300, 300);
+  // const loaderFour = new THREE.TextureLoader();
+  // const materialFour = new THREE.MeshBasicMaterial({
+  //   map: loaderFour.load(imagePlaceholder),
+  //   side: THREE.DoubleSide,
+  // });
+  // const planeFour = new THREE.Mesh(geometryFour, materialFour);
+  // planeFour.position.set(-450, 130, 90);
+  // planeFour.rotation.y += 1.8;
+  // panorama3.add(planeFour);
 
   // Sphere four artwork - contains five & six
   // const geometryFive = new THREE.PlaneGeometry(200, 200, 200);
