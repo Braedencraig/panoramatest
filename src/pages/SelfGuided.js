@@ -12,7 +12,7 @@ import three from "../assets/spheres/tunnel.jpg";
 // import six from "../assets/spheres/six.jpg";
 // import seven from "../assets/spheres/seven.jpg";
 // Artworks
-// import imagePlaceholder from "../assets/art/artworkPlaceholder.jpg";
+import imagePlaceholder from "../assets/art/artworkPlaceholder.jpg";
 // import gifPlaceholder from "../assets/gifs/gifPlaceholder.gif";
 // import imageTest from "../assets/next.png"
 // Audio
@@ -55,7 +55,6 @@ export default function SelfGuided() {
   // Edgecase for bug in panolens for second image useage, has to do with caching on their end.
   panorama2.link(panorama3, new THREE.Vector3(-207.5, 504.88, -6000.0));
   panorama2.link(panorama3, new THREE.Vector3(-207.5, 504.88, -6000.0));
-
   // panorama2.link(panorama3, new THREE.Vector3(-6907.5, 304.88, 1000.0), 600, `${imageTest}`);
   panorama3.link(panorama4, new THREE.Vector3(-207.5, 504.88, -6000.0));
   panorama4.link(panorama5, new THREE.Vector3(-207.5, 504.88, -6000.0));
@@ -139,15 +138,15 @@ export default function SelfGuided() {
   // const loader = new GifLoader();
 
   // // Sphere one artwork - contains one
-  // const geometryOne = new THREE.PlaneGeometry(300, 300, 300);
-  // const loaderOne = new THREE.TextureLoader();
-  // const materialOne = new THREE.MeshBasicMaterial({
-  //   map: loaderOne.load(imagePlaceholder),
-  //   side: THREE.DoubleSide,
-  // });
-  // const planeOne = new THREE.Mesh(geometryOne, materialOne);
-  // planeOne.position.set(-30, 100, 340);
-  // panorama1.add(planeOne);
+  const geometryOne = new THREE.PlaneGeometry(300, 300, 300);
+  const loaderOne = new THREE.TextureLoader();
+  const materialOne = new THREE.MeshBasicMaterial({
+    map: loaderOne.load(imagePlaceholder),
+    side: THREE.DoubleSide,
+  });
+  const planeOne = new THREE.Mesh(geometryOne, materialOne);
+  planeOne.position.set(-30, 100, 340);
+  panorama1.add(planeOne);
 
   // // Sphere two artwork - contains two & three
   // const textureTwo = loader.load(
