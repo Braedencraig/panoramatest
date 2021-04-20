@@ -494,3 +494,7 @@ p.location {
   -o-animation: fadeIn ease 10s;
   -ms-animation: fadeIn ease 10s;
 }
+
+.no-touch {
+  pointer-events: none;
+}

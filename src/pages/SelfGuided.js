@@ -5,7 +5,7 @@ import GifLoader from "three-gif-loader";
 import ReactHowler from "react-howler";
 // Spheres
 import one from "../assets/spheres/one.jpg";
-// import two from "../assets/spheres/two.jpg";
+import two from "../assets/spheres/two.jpg";
 import three from "../assets/spheres/three.jpg";
 import four from "../assets/spheres/four.jpg";
 import five from "../assets/spheres/five.jpg";
@@ -32,13 +32,12 @@ export default function SelfGuided() {
       panorama5, 
       panorama6, 
       panorama7,
-      panorama8, 
+      panorama8,
       viewer;
 
   // Create spheres
   panorama1 = new PANOLENS.ImagePanorama(one);
-  // panorama2 = new PANOLENS.ImagePanorama(two);
-  panorama2 = new PANOLENS.GoogleStreetviewPanorama( 'JmSoPsBPhqWvaBmOqfFzgA' )
+  panorama2 = new PANOLENS.ImagePanorama(two);
   panorama3 = new PANOLENS.ImagePanorama(three);
   panorama4 = new PANOLENS.ImagePanorama(four);
   panorama5 = new PANOLENS.ImagePanorama(five);
@@ -47,17 +46,15 @@ export default function SelfGuided() {
   panorama8 = new PANOLENS.ImagePanorama(one);
 
   // Link spheres
-  panorama1.link(panorama2, new THREE.Vector3(-207.5, 504.88, -6000.0));
-  // Edgecase for bug in panolens for second image useage, has to do with caching on their end.
-  panorama2.link(panorama3, new THREE.Vector3(-6907.5, 304.88, 1000.0));
-  panorama2.link(panorama3, new THREE.Vector3(-6907.5, 304.88, 1000.0));
+  panorama1.link(panorama2, new THREE.Vector3(-207.5, 504.88, -6000.0), 600);
+  panorama2.link(panorama3, new THREE.Vector3(-6907.5, 304.88, 1000.0), 600);
+  panorama2.link(panorama3, new THREE.Vector3(-6907.5, 304.88, 1000.0), 600);
   // panorama2.link(panorama3, new THREE.Vector3(-6907.5, 304.88, 1000.0), 600, `${imageTest}`);
-  panorama3.link(panorama4, new THREE.Vector3(-207.5, 504.88, -6000.0));
-  panorama4.link(panorama5, new THREE.Vector3(-207.5, 504.88, -6000.0));
-  panorama5.link(panorama6, new THREE.Vector3(-207.5, 504.88, -6000.0));
-  panorama6.link(panorama7, new THREE.Vector3(-207.5, 504.88, -6000.0));
-  panorama7.link(panorama8, new THREE.Vector3(-207.5, 504.88, -6000.0));
-  // panorama8.link(panorama1, new THREE.Vector3(-207.5, 504.88, -6000.0));
+  panorama3.link(panorama4, new THREE.Vector3(-207.5, 504.88, -6000.0), 600);
+  panorama4.link(panorama5, new THREE.Vector3(-207.5, 504.88, -6000.0), 600);
+  panorama5.link(panorama6, new THREE.Vector3(-207.5, 504.88, -6000.0), 600);
+  panorama6.link(panorama7, new THREE.Vector3(-207.5, 504.88, -6000.0), 600);
+  panorama7.link(panorama8, new THREE.Vector3(-207.5, 504.88, -6000.0), 600);
 
   // Create viewer and add panoramas
   viewer = new PANOLENS.Viewer({ autoHideInfospot: false });
@@ -69,10 +66,8 @@ export default function SelfGuided() {
   viewer.add(panorama6);
   viewer.add(panorama7);
   viewer.add(panorama8);
-  // TO DO USE PANOLENS GALLERY EXAMPLE FOR DISPOSING OF 
 
   const container = document.getElementsByClassName('panolens-container')[0]
-  // const end = Array.from(document.getElementsByClassName('end'))
 
   panorama1.addEventListener( 'enter-fade-start', function(){
     container.classList.add('fade-in')

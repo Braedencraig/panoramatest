@@ -45,6 +45,8 @@ export default function Guided() {
 
   useEffect(() => {
     setProgessEl(document.querySelector("#progress"));
+    const body = document.getElementsByTagName('body')[0]
+    body.style.pointerEvents = 'none'
   }, [setProgessEl]);
 
   var tweeningDelay = 300;
@@ -55,7 +57,7 @@ export default function Guided() {
 
   function onLoad() {
     setTimeout(() => {
-      onWelcomeComplete();
+      sphereOne();
     }, 3000);
   }
 
@@ -76,30 +78,76 @@ export default function Guided() {
     }
   }
 
-  function onWelcomeComplete() {
+  function sphereOne() {
     delayExecute(sphereOneArt.focus.bind(sphereOneArt, 10000), tweeningDelay);
     setTimeout(() => {
-      moveToSphereTwo();
-    }, 10000);
+      viewer.remove(panorama1)
+      viewer.setPanorama(panorama2)
+      sphereTwo()
+    }, 20000);
   }
 
-  function moveToSphereTwo() {
-    viewer.remove(panorama1)
-    viewer.setPanorama(panorama2)
-    setTimeout(() => {
-      introSphereTwo();
-    }, 10000);
-  }
-
-  function introSphereTwo() {
+  function sphereTwo() {
     delayExecute(sphereTwoArt2.focus.bind(sphereTwoArt2, 10000), tweeningDelay);
     setTimeout(() => {
-      sphereTwoArtTwo();
-    }, 15000);
+      delayExecute(sphereTwoArt1.focus.bind(sphereTwoArt1, 10000), tweeningDelay);
+      setTimeout(() => {
+        viewer.remove(panorama2)
+        viewer.setPanorama(panorama3)
+        sphereThree()
+      }, 20000)
+    }, 20000);
   }
 
-  function sphereTwoArtTwo() {
-    delayExecute(sphereTwoArt1.focus.bind(sphereTwoArt1, 10000), tweeningDelay);
+  function sphereThree() {
+    delayExecute(sphereThreeArt.focus.bind(sphereThreeArt, 10000), tweeningDelay);
+    setTimeout(() => {
+      viewer.remove(panorama3)
+      viewer.setPanorama(panorama4)
+      sphereFour()
+    }, 20000);
+  }
+
+  function sphereFour() {
+    delayExecute(sphereFourArt1.focus.bind(sphereFourArt1, 10000), tweeningDelay);
+    setTimeout(() => {
+      delayExecute(sphereFourArt2.focus.bind(sphereFourArt2, 10000), tweeningDelay);
+      setTimeout(() => {
+        viewer.remove(panorama4)
+        viewer.setPanorama(panorama5)
+        sphereFive()
+      }, 20000)
+    }, 20000);
+  }
+
+  function sphereFive() {
+    delayExecute(sphereFiveArt1.focus.bind(sphereFiveArt1, 10000), tweeningDelay);
+    setTimeout(() => {
+      delayExecute(sphereFiveArt2.focus.bind(sphereFiveArt2, 10000), tweeningDelay);
+      setTimeout(() => {
+        viewer.remove(panorama5)
+        viewer.setPanorama(panorama6)
+        sphereSix()
+      }, 20000)
+    }, 20000);
+  }
+
+  function sphereSix() {
+    delayExecute(sphereSixArt.focus.bind(sphereSixArt, 10000), tweeningDelay);
+    setTimeout(() => {
+      viewer.remove(panorama6)
+      viewer.setPanorama(panorama7)
+      sphereSeven()
+    }, 20000);
+  }
+
+  function sphereSeven() {
+    delayExecute(sphereSevenArt.focus.bind(sphereSevenArt, 10000), tweeningDelay);
+    setTimeout(() => {
+      viewer.remove(panorama7)
+      viewer.setPanorama(panorama8)
+      // sphereFour()
+    }, 20000);
   }
 
   // Infospots
@@ -115,15 +163,15 @@ export default function Guided() {
   sphereSevenArt = new PANOLENS.Infospot(10e-7);
   // Infospots positioning
   sphereOneArt.position.set(-30, 100, 340);
-  sphereTwoArt1.position.set(-160, 220, 420);
+  sphereTwoArt1.position.set(160, 220, 420);
   sphereTwoArt2.position.set(10, 210, -440);
-  sphereThreeArt.position.set(-450, 130, 90);
-  sphereFourArt1.position.set(-350, -10, 10);
-  sphereFourArt2.position.set(350, 80, -60);
+  sphereThreeArt.position.set(450, 130, 90);
+  sphereFourArt1.position.set(-350, 10, 10);
+  sphereFourArt2.position.set(350, -80, -60);
   sphereFiveArt1.position.set(-350, 100, 10);
   sphereFiveArt2.position.set(350, 80, -60);
-  sphereSixArt.position.set(-350, 160, -220);
-  sphereSevenArt.position.set(-200, 160, -350);
+  sphereSixArt.position.set(350, 160, -220);
+  sphereSevenArt.position.set(200, 160, -350);
 
   // Create spheres
   panorama1 = new PANOLENS.ImagePanorama(one);
@@ -136,15 +184,15 @@ export default function Guided() {
   panorama8 = new PANOLENS.ImagePanorama(one);
 
   // Link spheres
-  panorama1.link(panorama2, new THREE.Vector3(-207.5, 504.88, -6000.0), 600, `${process.env.PUBLIC_URL + 'next.png'}`);
+  panorama1.link(panorama2, new THREE.Vector3(10e-7), 600);
   // Edgecase for bug in panolens for second image useage, has to do with caching on their end.
-  panorama2.link(panorama3, new THREE.Vector3(-6907.5, 304.88, 1000.0), 600, `${process.env.PUBLIC_URL + 'next.png'}`);
-  panorama2.link(panorama3, new THREE.Vector3(-6907.5, 304.88, 1000.0), 600, `${process.env.PUBLIC_URL + 'next.png'}`);
-  panorama3.link(panorama4, new THREE.Vector3(-207.5, 504.88, -6000.0), 600, `${process.env.PUBLIC_URL + 'next.png'}`);
-  panorama4.link(panorama5, new THREE.Vector3(-207.5, 504.88, -6000.0), 600, `${process.env.PUBLIC_URL + 'next.png'}`);
-  panorama5.link(panorama6, new THREE.Vector3(-207.5, 504.88, -6000.0), 600, `${process.env.PUBLIC_URL + 'next.png'}`);
-  panorama6.link(panorama7, new THREE.Vector3(-207.5, 504.88, -6000.0), 600, `${process.env.PUBLIC_URL + 'next.png'}`);
-  panorama7.link(panorama8, new THREE.Vector3(-207.5, 504.88, -6000.0), 600, `${process.env.PUBLIC_URL + 'next.png'}`);
+  panorama2.link(panorama3, new THREE.Vector3(10e-7), 600);
+  panorama2.link(panorama3, new THREE.Vector3(10e-7), 600);
+  panorama3.link(panorama4, new THREE.Vector3(10e-7), 600);
+  panorama4.link(panorama5, new THREE.Vector3(10e-7), 600);
+  panorama5.link(panorama6, new THREE.Vector3(10e-7), 600);
+  panorama6.link(panorama7, new THREE.Vector3(10e-7), 600);
+  panorama7.link(panorama8, new THREE.Vector3(10e-7), 600);
 
   // Fade in for spheres
   const container = document.getElementsByClassName('panolens-container')[0]
@@ -206,7 +254,9 @@ export default function Guided() {
     side: THREE.DoubleSide,
   });
   const planeOne = new THREE.Mesh(geometryOne, materialOne);
-  planeOne.position.set(-30, 100, 340);
+  planeOne.position.set(30, 100, 340);
+  planeOne.rotation.x -= 0.12;
+  planeOne.rotation.y += 0.12;
   panorama1.add(planeOne);
 
   // Sphere two artwork - contains two & three
@@ -233,7 +283,6 @@ export default function Guided() {
   const geometryTwo = new THREE.PlaneGeometry(300, 300, 300);
   const planeTwo = new THREE.Mesh(geometryTwo, materialTwo);
   planeTwo.position.set(-160, 220, 420);
-  planeTwo.rotation.y -= 0.3;
   panorama2.add(planeTwo);
 
   const geometryThree = new THREE.PlaneGeometry(300, 300, 300);
@@ -244,6 +293,7 @@ export default function Guided() {
   });
   const planeThree = new THREE.Mesh(geometryThree, materialThree);
   planeThree.position.set(10, 210, -440);
+  planeThree.rotation.x += 0.2;
   panorama2.add(planeThree);
 
   // Sphere three artwork - contains four
@@ -364,6 +414,11 @@ export default function Guided() {
   panorama1.addEventListener("enter", onEnter);
   panorama1.add(sphereOneArt);
   panorama2.add(sphereTwoArt1, sphereTwoArt2);
+  panorama3.add(sphereThreeArt);
+  panorama4.add(sphereFourArt1, sphereFourArt2);
+  panorama5.add(sphereFiveArt1, sphereFiveArt2);
+  panorama6.add(sphereSixArt);
+  panorama7.add(sphereSevenArt);
 
   // Viewer
   viewer = new PANOLENS.Viewer({
@@ -374,7 +429,7 @@ export default function Guided() {
   viewer.add(panorama1, panorama2, panorama3, panorama4, panorama5, panorama6, panorama7, panorama8);
 
   return (
-    <div>
+    <div className="no-touch">
       <div className="wrap">
         <div id="dialog" className="type-wrap">
           <span id="typed" ref={spanEl} />
@@ -385,6 +440,10 @@ export default function Guided() {
         playing={true}
         loop={true}
       />
+      <div className="end">
+        <h2>Thank you for coming!</h2>
+        <p>Please visit the <a href="/about">about page</a> to learn more about the artist and the exibition.</p>
+      </div>
     </div>
   );
 }
